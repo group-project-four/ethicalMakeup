@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header>
-          <Link to="/">
+          <Link to="/" style={{textDecoration:'none'}}>
             <h1>Ethical makeup</h1>
           </Link>
         </header>
