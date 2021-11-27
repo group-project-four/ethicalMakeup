@@ -39,11 +39,11 @@ const Catalogue = () => {
             products.product_type === "blush"
     );
 
-    // Error handling for images that are broken
-    function imgError(image) {
-        image.target.src =
-            "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";
-    }
+    // // Error handling for images that are broken
+    // function imgError(image) {
+    //     image.target.src =
+    //         "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";
+    // }
 
     // Filter three arrays for products that don't have a price & filter out products/pictures that don't fit:
     const eyeProductAdj = eyeProducts.filter(
@@ -82,9 +82,9 @@ const Catalogue = () => {
                 {/* Product_types: eyeshadow, eyeliner, mascara, eyebrow */}
                 <h2>Eye</h2>
                 <div className="sectionCarousel">
-                <Slider slides={eyeProductAdj}/>
                     <ul>
-                        {eyeProductAdj.map((product) => {
+                    <Slider slides={eyeProductAdj}/>
+                        {/* {eyeProductAdj.map((product) => {
                             // let price = product.price
                             // let roundedPrice = price.toFixed(2)
                             return (
@@ -98,7 +98,7 @@ const Catalogue = () => {
                                     <p>$ {product.price}</p>
                                 </li>
                             );
-                        })}
+                        })} */}
                     </ul>
                 </div>
             </section>
