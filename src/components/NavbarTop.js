@@ -10,7 +10,6 @@ const NavbarTop = (props) => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        console.log('hello')
         props.handleQuery(inputSearch)
     }
 

@@ -7,18 +7,7 @@ import ProductPage from './ProductPage'
 
 const MainPage = () => {
     const [products, setProduct] = useState([])
-
-    // useEffect(() => {
-    //     axios({
-    //         url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
-    //         params: {
-    //             brand: 'maybelline',
-    //             product_type: 'lipstick',
-    //         }
-    //     }).then((response) => {
-    //         setProduct(response.data)
-    //     })
-    // }, [])
+    const [errorMessage, setErrorMessage] = useState('')
 
     const handleQuery = (query) => {
         axios({
@@ -27,8 +16,12 @@ const MainPage = () => {
                 product_type: query,
             }
         }).then((response) => {
-            setProduct(response.data)
-            console.log(response.data)
+            if(response.data.length !== 0){
+                const firstTwenty = response.data.slice(0, 20)
+                setProduct(firstTwenty)
+            }else(
+                setErrorMessage('please enter a valid search term')
+            )
         })
     }
 
@@ -39,7 +32,7 @@ const MainPage = () => {
                 {
                     products.map(product => {
                         return (
-                            <>
+                            <div key={product.id}>
                                 {product.name}
                                 <Link to={`/${product.id}`}>
                                     <img
@@ -47,11 +40,12 @@ const MainPage = () => {
                                         alt={`product of ${product.brand} company`}
                                     />
                                 </Link>
-                            </>
+                            </div>
                         )
                     })
                 }
             </ul>
+            {errorMessage}
         </div>
     )
 }
