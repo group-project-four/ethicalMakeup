@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import Catalogue from './Catalogue'
 
 const MainPage = () => {
     const [products, setProduct] = useState([])
@@ -17,7 +18,7 @@ const MainPage = () => {
     }, [])
     return (
         <div>
-            <ul>
+            {/* <ul>
                 {
                     products.map(product => {
                         return(
@@ -25,7 +26,8 @@ const MainPage = () => {
                         )
                     })
                 }
-            </ul>
+            </ul> */}
+            <Catalogue/>
         </div>
     )
 }
