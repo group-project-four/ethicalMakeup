@@ -47,7 +47,6 @@ const MainPage = () => {
                     })
                 }
             </ul>
-            <Catalogue/>
             </ul>
             {errorMessage}
         </div>
