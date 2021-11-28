@@ -7,6 +7,7 @@ import NavbarTop from './NavbarTop'
 import ProductPage from './ProductPage'
 import Posts from './Posts'
 import Pagination from './Pagination'
+// import SortingOptions from './SortingOptions'
 
 const MainPage = () => {
     const [products, setProduct] = useState([])
@@ -14,6 +15,7 @@ const MainPage = () => {
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(10)
+    const [sortedProducts, setSortedProducts] = useState([])
 
 
     const handleQuery = (query) => {
@@ -25,6 +27,7 @@ const MainPage = () => {
         }).then((response) => {
             if(response.data.length !== 0){
                 console.log(response.data)
+                // const firstTwenty = response.data.slice(0,20)
                 setProduct(response.data) 
                 setLoading(false)
                 setErrorMessage('')
@@ -34,23 +37,30 @@ const MainPage = () => {
         })
     }
 
-    const handleChangeOption = (event) => {
-        console.log(event.target.value)
-        if(event.target.value == 'alphabetical'){
-            const orderedProducts = currentPosts.sort((a, b) => {
-                return a.name > b.name
-            })
-        }
-    }
-
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-    const filteredPrice = currentPosts.filter((productFiltered) => {
+
+    let filteredPrice = currentPosts.filter((productFiltered) => {
         return productFiltered.price > 0.0
     })
+
+    const handleChangeOption = (event) => {
+        console.log(event.target.value)
+    
+        if(event.target.value == 'alphabetical'){
+            const orderedPrice = filteredPrice.sort((a, b) => {
+                return a.name > b.name
+            })
+            filteredPrice = [...orderedPrice]
+            console.log(filteredPrice)
+        }else{
+            return filteredPrice
+        }
+    }
+    console.log(filteredPrice)
 
     return (
         <div>
@@ -60,11 +70,13 @@ const MainPage = () => {
             <section>
                 <label htmlFor="sorting"></label>
                 <select name="sorting" id="sorting" onChange={handleChangeOption}>
+                    <option value defaultValue>Sort by</option>
                     <option value="price">price</option>
                     <option value="alphabetical">alphabetical</option>
                     <option value="rating">rating</option>
                 </select>
             </section>
+            {/* <SortingOptions filteredPrice={filteredPrice}/> */}
             <ul>
                 {
                     filteredPrice.map(product => {

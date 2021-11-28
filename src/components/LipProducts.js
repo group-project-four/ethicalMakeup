@@ -10,6 +10,7 @@ const LipProducts = () => {
          axios({
              url: "http://makeup-api.herokuapp.com/api/v1/products.json",
          }).then((response) => {
+            // const firstTwenty = response.data.slice(0,20)
              setProduct(response.data);
              console.log(response.data);
          });
