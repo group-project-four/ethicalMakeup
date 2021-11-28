@@ -9,6 +9,9 @@ import ProductPage from './ProductPage'
 const MainPage = () => {
     const [products, setProduct] = useState([])
     const [errorMessage, setErrorMessage] = useState('')
+    const [loading, setLoading] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage, setPostsPerPage] = useState(10)
 
     const handleQuery = (query) => {
         axios({
