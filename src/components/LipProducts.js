@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 
 const LipProducts = () => {
-     // Set all products from API to state
-     const [products, setProduct] = useState([]);
+    // Set all products from API to state
+    const [products, setProduct] = useState([]);
 
+<<<<<<< HEAD
      // Call API
      useEffect(() => {
          axios({
@@ -15,6 +17,17 @@ const LipProducts = () => {
              console.log(response.data);
          });
      }, []);
+=======
+    // Call API
+    useEffect(() => {
+        axios({
+            url: "http://makeup-api.herokuapp.com/api/v1/products.json",
+        }).then((response) => {
+            setProduct(response.data);
+            console.log(response.data);
+        });
+    }, []);
+>>>>>>> 31788b35fa29daf9daf88920d8d930e1fba097b8
 
     // Filter Products array for Lipstick & lip liner:
     const lipProducts = products.filter(
@@ -41,13 +54,14 @@ const LipProducts = () => {
             "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";
     }
 
-    return(
+    return (
         <div>
             <h2>Lip</h2>
-                <div className="sectionCarousel">
-                    {lipProductAdj.map((product) => {
-                        return (
-                            <div key={product.id}>
+            <ul className="sectionCarousel">
+                {lipProductAdj.map((product) => {
+                    return (
+                        <Link to={`/${product.id}`}>
+                            <li key={product.id}>
                                 <img
                                     src={product.image_link}
                                     alt={product.name}
@@ -55,10 +69,12 @@ const LipProducts = () => {
                                 />
                                 <h3>{product.name}</h3>
                                 <p>$ {product.price}</p>
-                            </div>
-                        );
-                    })}
-                </div>
+                                <button>More Info</button>
+                            </li>
+                        </Link>
+                    );
+                })}
+            </ul>
         </div>
     )
 }

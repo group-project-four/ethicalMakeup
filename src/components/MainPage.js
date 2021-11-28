@@ -5,9 +5,12 @@ import { Routes, Route, Link } from 'react-router-dom'
 
 import NavbarTop from './NavbarTop'
 import ProductPage from './ProductPage'
+<<<<<<< HEAD
 import Posts from './Posts'
 import Pagination from './Pagination'
 // import SortingOptions from './SortingOptions'
+=======
+>>>>>>> 31788b35fa29daf9daf88920d8d930e1fba097b8
 
 const MainPage = () => {
     const [products, setProduct] = useState([])
@@ -17,7 +20,6 @@ const MainPage = () => {
     const [postsPerPage, setPostsPerPage] = useState(10)
     const [sortedProducts, setSortedProducts] = useState([])
 
-
     const handleQuery = (query) => {
         axios({
             url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
@@ -26,17 +28,23 @@ const MainPage = () => {
             }
         }).then((response) => {
             if(response.data.length !== 0){
+<<<<<<< HEAD
                 console.log(response.data)
                 // const firstTwenty = response.data.slice(0,20)
                 setProduct(response.data) 
                 setLoading(false)
                 setErrorMessage('')
+=======
+                const firstTwenty = response.data.slice(0, 20)
+                setProduct(firstTwenty)
+>>>>>>> 31788b35fa29daf9daf88920d8d930e1fba097b8
             }else(
                 setErrorMessage('please enter a valid search term')
             )
         })
     }
 
+<<<<<<< HEAD
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
@@ -62,10 +70,13 @@ const MainPage = () => {
     }
     console.log(filteredPrice)
 
+=======
+>>>>>>> 31788b35fa29daf9daf88920d8d930e1fba097b8
     return (
         <div>
             <ul>
             <NavbarTop handleQuery={handleQuery} />
+<<<<<<< HEAD
             {errorMessage}
             <section>
                 <label htmlFor="sorting"></label>
@@ -77,9 +88,11 @@ const MainPage = () => {
                 </select>
             </section>
             {/* <SortingOptions filteredPrice={filteredPrice}/> */}
+=======
+>>>>>>> 31788b35fa29daf9daf88920d8d930e1fba097b8
             <ul>
                 {
-                    filteredPrice.map(product => {
+                    products.map(product => {
                         return (
                             <div key={product.id}>
                                 {product.name}
@@ -89,17 +102,13 @@ const MainPage = () => {
                                         alt={`product of ${product.brand} company`}
                                     />
                                 </Link>
-                                {product.price}{product.price_sign} 
                             </div>
                         )
                     })
                 }
             </ul>
-
-            <Posts products={currentPosts} loading={loading}/>
-            <Pagination postsPerPage={postsPerPage} totalPosts = {products.length} paginate={paginate}/>
-
             </ul>
+            {errorMessage}
         </div>
     )
 }
