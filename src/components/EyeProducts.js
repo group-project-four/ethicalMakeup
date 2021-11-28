@@ -41,8 +41,7 @@ const EyeProducts = () => {
     return (
         <div>
             <h2>Eye</h2>
-            <div className="sectionCarousel">
-                <ul>
+                <ul className="productSection">
                     {eyeProductAdj.map((product) => {
                         // let price = product.price
                         // let roundedPrice = price.toFixed(2)
@@ -62,7 +61,6 @@ const EyeProducts = () => {
                         );
                     })}
                 </ul>
-            </div>
         </div>
     )
 }

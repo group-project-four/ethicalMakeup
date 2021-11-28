@@ -49,7 +49,7 @@ const FaceProducts = () => {
     return (
         <div>
             <h2>Face</h2>
-            <ul className="sectionCarousel">
+            <ul className="productSection">
                 {faceProductAdj.map((product) => {
                     return (
                         <Link to={`/${product.id}`}>

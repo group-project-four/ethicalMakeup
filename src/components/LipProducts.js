@@ -44,7 +44,7 @@ const LipProducts = () => {
     return (
         <div>
             <h2>Lip</h2>
-            <ul className="sectionCarousel">
+            <ul className="productSection">
                 {lipProductAdj.map((product) => {
                     return (
                         <Link to={`/${product.id}`}>
