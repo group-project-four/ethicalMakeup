@@ -4,10 +4,11 @@ import Catalogue from './Catalogue'
 import { Routes, Route, Link } from 'react-router-dom'
 
 
-import NavbarTop from './NavbarTop'
+// import NavbarTop from './NavbarTop'
 import ProductPage from './ProductPage'
 import Posts from './Posts'
 import Pagination from './Pagination'
+import SearchedProducts from './SearchedProducts'
 // import SortingOptions from './SortingOptions'
 
 const MainNav = () => {
@@ -17,6 +18,7 @@ const MainNav = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(10)
     const [sortedProducts, setSortedProducts] = useState([])
+    const [inputSearch, setInputSearch] = useState('')
 
     const handleQuery = (query) => {
         axios({
@@ -42,9 +44,23 @@ const MainNav = () => {
     //     console.log(sortedProducts, 'hello')
     // }, [products])
 
-    useEffect(() => {
-        
-    }, [sortedProducts])
+    // useEffect(() => {
+
+    // }, [sortedProducts])
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault()
+        // if (inputSearch !== ''){
+        handleQuery(inputSearch)
+            // return true;
+        // }else{
+        //     return false;
+        // }
+    }
+
+    const handleChange = (event) => {
+        setInputSearch(event.target.value)
+    }
 
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
@@ -53,7 +69,7 @@ const MainNav = () => {
     // setSortedProducts(products.slice(indexOfFirstPost, indexOfLastPost))
 
 
-    let filteredPrice = currentPosts.filter((productFiltered) => {
+    const filteredPrice = currentPosts.filter((productFiltered) => {
         return productFiltered.price > 0.0
     })
     // setSortedProducts(filteredPrice)
@@ -73,7 +89,32 @@ const MainNav = () => {
     return (
         <div>
             <ul>
-                <NavbarTop handleQuery={handleQuery} />
+                <div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li>
+                                <a href="#">About us</a>
+                            </li>
+                            <li>
+                                <Link to="catalogue">Catalogue</Link>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <form onSubmit={handleFormSubmit}>
+                        <label htmlFor="searchTab"></label>
+                        <input
+                            type="text"
+                            id="searchTab"
+                            value={inputSearch}
+                            onChange={handleChange}
+                        />
+                    </form>
+                </div>
+                {/* <NavbarTop handleQuery={handleQuery} /> */}
                 {errorMessage}
                 {/* <section>
                     <label htmlFor="sorting"></label>
@@ -85,7 +126,7 @@ const MainNav = () => {
                     </select>
                 </section> */}
                 {/* <SortingOptions filteredPrice={filteredPrice}/> */}
-                <ul>
+                {/* <ul>
                     {
                         filteredPrice.map(product => {
                             return (
@@ -102,7 +143,8 @@ const MainNav = () => {
                             )
                         })
                     }
-                </ul>
+                </ul> */}
+                <SearchedProducts filteredPrice={filteredPrice}/>
                 <Posts products={currentPosts} loading={loading} />
                 <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />
             </ul>
