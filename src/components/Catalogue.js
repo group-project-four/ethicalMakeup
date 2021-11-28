@@ -113,7 +113,7 @@ const Catalogue = () => {
                                 <img
                                     src={product.image_link}
                                     alt={product.name}
-                                    onError={imgError}
+                                    // onError={imgError}
                                 />
                                 <h3>{product.name}</h3>
                                 <p>$ {product.price}</p>
@@ -133,7 +133,7 @@ const Catalogue = () => {
                                 <img
                                     src={product.image_link}
                                     alt={product.name}
-                                    onError={imgError}
+                                    // onError={imgError}
                                 />
                                 <h3>{product.name}</h3>
                                 <p>$ {product.price}</p>
