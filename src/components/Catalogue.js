@@ -1,7 +1,4 @@
 import { Routes, Route, Link } from 'react-router-dom'
-import EyeProducts from './EyeProducts';
-import LipProducts from './LipProducts';
-import FaceProducts from './FaceProducts';
 
 const Catalogue = () => {
 
