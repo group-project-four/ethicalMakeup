@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import Catalogue from './Catalogue'
 import { Routes, Route, Link } from 'react-router-dom'
 
 import NavbarTop from './NavbarTop'
@@ -41,6 +42,7 @@ const MainPage = () => {
 
     return (
         <div>
+            <ul>
             <NavbarTop handleQuery={handleQuery} />
             <ul>
                 {
@@ -59,8 +61,12 @@ const MainPage = () => {
                     })
                 }
             </ul>
+
             <Posts products={currentPosts} loading={loading}/>
             <Pagination postsPerPage={postsPerPage} totalPosts = {products.length} paginate={paginate}/>
+
+            </ul>
+
             {errorMessage}
         </div>
     )
