@@ -2,32 +2,21 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 
+import MainNav from "./MainNav";
+
 const LipProducts = () => {
     // Set all products from API to state
     const [products, setProduct] = useState([]);
 
-<<<<<<< HEAD
-     // Call API
-     useEffect(() => {
-         axios({
-             url: "http://makeup-api.herokuapp.com/api/v1/products.json",
-         }).then((response) => {
-            // const firstTwenty = response.data.slice(0,20)
-             setProduct(response.data);
-             console.log(response.data);
-         });
-     }, []);
-=======
     // Call API
     useEffect(() => {
         axios({
             url: "http://makeup-api.herokuapp.com/api/v1/products.json",
         }).then((response) => {
             setProduct(response.data);
-            console.log(response.data);
+            // console.log(response.data);
         });
     }, []);
->>>>>>> 31788b35fa29daf9daf88920d8d930e1fba097b8
 
     // Filter Products array for Lipstick & lip liner:
     const lipProducts = products.filter(
@@ -56,6 +45,7 @@ const LipProducts = () => {
 
     return (
         <div>
+            <MainNav />
             <h2>Lip</h2>
             <ul className="sectionCarousel">
                 {lipProductAdj.map((product) => {
