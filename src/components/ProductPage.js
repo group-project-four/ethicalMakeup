@@ -2,6 +2,8 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+import MainNav from './MainNav'
+
 
 const ProductPage = () => {
     const [individualProducts, setIndividualProduct] = useState({})
@@ -23,14 +25,17 @@ const ProductPage = () => {
     const { image_link, description, product_link, brand, name, rating } = individualProducts
     return (
         <div>
-            <h2>{name}</h2>
-            <p>{description}</p>
-            <p>{rating}</p>
-            <img
-                src={image_link}
-                alt={`product of ${brand} brand`}
-            />
-            <a href={product_link}>Product link</a>
+            <MainNav />
+            <div>
+                <h2>{name}</h2>
+                <p>{description}</p>
+                <p>{rating}</p>
+                <img
+                    src={image_link}
+                    alt={`product of ${brand} brand`}
+                />
+                <a href={product_link}>Product link</a>
+            </div>
         </div>
     )
 }

@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 
 //importing components
-import MainPage from './components/MainPage';
+import MainNav from './components/MainNav';
+import JamesComponent from './components/JamesComponent';
 import ProductPage from './components/ProductPage';
 import Catalogue from './components/Catalogue';
 import EyeProducts from './components/EyeProducts';
@@ -22,7 +23,7 @@ function App() {
           </Link>
         </header>
         <Routes>
-          <Route path="/*" element={<MainPage />} />
+          <Route path="/*" element={<JamesComponent />} />
           <Route path="/:productID" element={<ProductPage />} />
           <Route path="/catalogue" element={<Catalogue />} />
           <Route path="/catalogue/eyeproducts" element={<EyeProducts />}/>
