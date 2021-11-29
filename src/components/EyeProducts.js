@@ -11,6 +11,9 @@ const EyeProducts = () => {
     useEffect(() => {
         axios({
             url: "http://makeup-api.herokuapp.com/api/v1/products.json",
+            params: {
+                product_tags: "vegan"
+            }
         }).then((response) => {
             setProduct(response.data);
             console.log(response.data);
@@ -25,7 +28,7 @@ const EyeProducts = () => {
             products.product_type === "eyeshadow"
     );
 
-    // Filter array for products that don't have a price & filter out products/pictures that don't fit:
+    // Filter array for products that don't have a price:
     const eyeProductAdj = eyeProducts.filter(
         (products) =>
             products.price !== "0.0" &&
