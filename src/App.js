@@ -1,16 +1,16 @@
 //importing libraries
-import './App.scss';
+import './App.scss'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 
 //importing components
 // import MainNav from './components/MainNav';
-import ProductPage from './components/ProductPage';
-import Catalogue from './components/Catalogue';
-import EyeProducts from './components/EyeProducts';
-import LipProducts from './components/LipProducts';
-import FaceProducts from './components/FaceProducts';
-import HomePage from './components/HomePage';
+import ProductPage from './components/ProductPage'
+import Catalogue from './components/Catalogue'
+import EyeProducts from './components/EyeProducts'
+import LipProducts from './components/LipProducts'
+import FaceProducts from './components/FaceProducts'
+import HomePage from './components/HomePage'
 
 function App() {
 
@@ -35,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default App 

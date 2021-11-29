@@ -1,32 +1,42 @@
 // import firebase from './firebase'
 import firebase from '../firebase'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const CustomerReview = () => {
-    const [inputSearch, setInputSearch] = useState('')
-    const [inputReviews, setInputReview] = useState([])
-
+const CustomerReview = (props) => {
+    const [input, setInput] = useState('')
+    const [reviews, setReviews] = useState([])
+    const temp = []
+    
+    console.log(props.product.name)
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        const dbRef = firebase.database().ref()
-        dbRef.push(inputSearch)
-        console.log("hello");
-        // setInputSearch = ("");
-        dbRef.on('value', (response) => {
-            const newState = []
-            const data = response.val()
-    
-            for (let object in data) {
-                newState.push(data[object])
-            }
-            setInputReview(newState)
-    
-        })
+        addToDatabase(props)
+        readFromDatabase(props)
     }
+
     const handleChange = (event) => {
         // event.preventDefault()
-        setInputSearch(event.target.value);
+        setInput(event.target.value)
     }
+
+    function addToDatabase(props) {
+        const dbRef = firebase.database().ref(`${props.product.id}`)
+        dbRef.push(
+            {
+                "review": `${input}`
+            }
+        )
+    }
+    function readFromDatabase(props) {
+        const dbRef = firebase.database().ref(`${props.product.id}`)
+        dbRef.on('value',response => {
+            console.log(response.val())
+            setReviews(response.val())
+        })
+    }
+    useEffect(() => {
+        setReviews(response.val())
+    },[])
     
     return (
         <div>
@@ -35,27 +45,23 @@ const CustomerReview = () => {
                     <input
                         type="text"
                         id="review"
-                        value={inputSearch}
+                        value={input}
                         onChange={handleChange}
                     />
             </form>
             <ul>
-                {
-                    inputReviews.map((inputReview) => {
+                {/* {
+                    reviews.map((review) => {
                         return(
                             <li>
-                               {inputReview}
+                               {review}
                             </li>
                         )
                     })
-                }
+                } */}
             </ul>
-            
         </div>
     )
-
-    
-
 }
 
-export default CustomerReview;
+export default CustomerReview
