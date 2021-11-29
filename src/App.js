@@ -19,7 +19,7 @@ function App() {
       <div className="App">
         <header>
           <Link to="/" style={{textDecoration:'none'}}>
-            <h1>Ethical makeup</h1>
+            <h1>Ethical Makeup</h1>
           </Link>
         </header>
         <Routes>
