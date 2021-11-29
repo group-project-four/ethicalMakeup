@@ -2,15 +2,14 @@
 import './App.scss';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
-
 //importing components
-// import MainNav from './components/MainNav';
 import ProductPage from './components/ProductPage';
 import Catalogue from './components/Catalogue';
 import EyeProducts from './components/EyeProducts';
 import LipProducts from './components/LipProducts';
 import FaceProducts from './components/FaceProducts';
 import HomePage from './components/HomePage';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -31,6 +30,7 @@ function App() {
           <Route path="/catalogue/faceproducts" element={<FaceProducts />}/>
         </Routes>
       </div>
+      <Footer /> 
     </BrowserRouter>
   );
 }

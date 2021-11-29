@@ -1,0 +1,38 @@
+
+footer{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    .topSection{
+        display: flex;
+        border-bottom: black 1px solid;
+        justify-content: space-around;
+        p{
+            margin-left: 120px;
+        }
+        ul{
+            display: flex;
+            li{
+                padding-left: 20px;
+            }
+        }
+    }
+    .bottomSection{
+        display: flex;
+        flex-direction: column;
+        .icons{
+            display: flex;
+            align-self: center;
+            a{
+                padding-left: 20px;
+                color: black;
+            }
+        }
+        p{
+            align-self: center;
+            a{
+                color: black;
+            }
+        }
+    }
+}

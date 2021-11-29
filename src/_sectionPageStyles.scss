@@ -49,4 +49,20 @@
     p{
         color: #f8f2ef;
     }
+    p{
+        text-align: left;
+        width: 100%;
+        margin-top: 0;
+        transition: color 0.5s ease;
+    }
+}
+
+.productCard:hover {
+    background-color:#9A8C98 ;
+    h3{
+        color: #f8f2ef;
+    }
+    p{
+        color: #f8f2ef;
+    }
 }
