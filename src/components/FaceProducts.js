@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
+import MainNav from "./MainNav";
 
 const FaceProducts = () => {
     // Set all products from API to state
@@ -48,25 +49,28 @@ const FaceProducts = () => {
 
     return (
         <div>
-            <h2>Face</h2>
-            <ul className="productSection">
-                {faceProductAdj.map((product) => {
-                    return (
-                        <Link to={`/${product.id}`}>
-                            <li key={product.id}>
-                                <img
-                                    src={product.image_link}
-                                    alt={product.name}
-                                    onError={imgError}
-                                />
-                                <h3>{product.name}</h3>
-                                <p>$ {product.price}</p>
-                                <button>More Info</button>
-                            </li>
-                        </Link>
-                    );
-                })}
-            </ul>
+            <MainNav />
+            <div className="sectionWrapper">
+                <h2>Face Makeup</h2>
+                <ul className="productSection">
+                    {faceProductAdj.map((product) => {
+                        return (
+                            <Link to={`/${product.id}`}>
+                                <li key={product.id} className="productCard">
+                                    <img
+                                        src={product.image_link}
+                                        alt={product.name}
+                                        onError={imgError}
+                                    />
+                                    <h3>{product.name}</h3>
+                                    <p>$ {product.price}</p>
+                                    <button>More Info</button>
+                                </li>
+                            </Link>
+                        );
+                    })}
+                </ul>
+            </div>
         </div>
     )
 }

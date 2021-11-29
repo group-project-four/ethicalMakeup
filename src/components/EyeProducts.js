@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
+import MainNav from "./MainNav";
 
 const EyeProducts = () => {
     // Set all products from API to state
@@ -40,27 +41,30 @@ const EyeProducts = () => {
 
     return (
         <div>
-            <h2>Eye</h2>
-                <ul className="productSection">
-                    {eyeProductAdj.map((product) => {
-                        // let price = product.price
-                        // let roundedPrice = price.toFixed(2)
-                        return (
-                            <Link to={`/${product.id}`}>
-                                <li key={product.id}>
-                                    <img
-                                        src={product.image_link}
-                                        alt={product.name}
-                                        onError={imgError}
-                                    />
-                                    <h3>{product.name}</h3>
-                                    <p>$ {product.price}</p>
-                                    <button>More Info</button>
-                                </li>
-                            </Link>
-                        );
-                    })}
-                </ul>
+            <MainNav />
+            <div className="sectionWrapper">
+                <h2>Eye Makeup</h2>
+                    <ul className="productSection">
+                        {eyeProductAdj.map((product) => {
+                            // let price = product.price
+                            // let roundedPrice = price.toFixed(2)
+                            return (
+                                <Link to={`/${product.id}`}>
+                                    <li key={product.id} className="productCard">
+                                        <img
+                                            src={product.image_link}
+                                            alt={product.name}
+                                            onError={imgError}
+                                        />
+                                        <h3>{product.name}</h3>
+                                        <p>$ {product.price}</p>
+                                        <button>More Info</button>
+                                    </li>
+                                </Link>
+                            );
+                        })}
+                    </ul>
+            </div>
         </div>
     )
 }
