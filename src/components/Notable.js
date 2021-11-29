@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Notable = (props) => {
     console.log(props)
     return (
@@ -6,7 +8,9 @@ const Notable = (props) => {
                 props.array.map((item,index) => {
                     return (
                         <li key={index}>
-                            <img src={item.api_featured_image} alt={item.name} />
+                            <Link to={`/${item.id}`}>
+                                <img src={item.api_featured_image} alt={item.name} />
+                            </Link>
                         </li>
                     )
                 })
