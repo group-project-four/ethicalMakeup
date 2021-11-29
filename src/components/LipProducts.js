@@ -46,25 +46,27 @@ const LipProducts = () => {
     return (
         <div>
             <MainNav />
-            <h2>Lip</h2>
-            <ul className="sectionCarousel">
-                {lipProductAdj.map((product) => {
-                    return (
-                        <Link to={`/${product.id}`}>
-                            <li key={product.id}>
-                                <img
-                                    src={product.image_link}
-                                    alt={product.name}
-                                    onError={imgError}
-                                />
-                                <h3>{product.name}</h3>
-                                <p>$ {product.price}</p>
-                                <button>More Info</button>
-                            </li>
-                        </Link>
-                    );
-                })}
-            </ul>
+            <div className="sectionWrapper">
+                <h2>Lip</h2>
+                <ul className="productSection">
+                    {lipProductAdj.map((product) => {
+                        return (
+                            <Link to={`/${product.id}`}>
+                                <li key={product.id} className="productCard">
+                                    <img
+                                        src={product.image_link}
+                                        alt={product.name}
+                                        onError={imgError}
+                                    />
+                                    <h3>{product.name}</h3>
+                                    <p>$ {product.price}</p>
+                                    <button>More Info</button>
+                                </li>
+                            </Link>
+                        );
+                    })}
+                </ul>
+            </div>
         </div>
     )
 }

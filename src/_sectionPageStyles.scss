@@ -1,0 +1,27 @@
+.sectionWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1.5%;
+}
+
+.productSection {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    column-gap: 1%;
+    row-gap: 0.2%;
+    padding:0;
+}
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+        width: 40%;
+    }
+    h3{
+        text-align: center;
+    }
+}
