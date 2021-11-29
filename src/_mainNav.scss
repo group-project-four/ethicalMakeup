@@ -1,0 +1,35 @@
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+.topBar{
+    display: flex;
+    .left{
+        position: absolute;
+        display: flex;
+        left: 0;
+        top: 70px;
+        width: 25%;
+        justify-content: space-around;
+    }
+    .right{
+        position: absolute;
+        right: 0;
+        top: 70px;
+        width: 15%;
+        input{
+            border-radius: 50px;
+            //border: none;
+            cursor: pointer;
+            // width: 20px;
+        }
+        form{
+            position: relative;
+            div{
+                position: absolute;
+            }
+        }
+    }
+}
+

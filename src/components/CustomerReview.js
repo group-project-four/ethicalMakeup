@@ -53,9 +53,6 @@ const CustomerReview = () => {
             
         </div>
     )
-
-    
-
 }
 
-export default CustomerReview;
+export default CustomerReview

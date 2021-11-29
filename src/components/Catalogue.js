@@ -18,21 +18,31 @@ const Catalogue = () => {
         <main>
             <MainNav />
             <Link to="eyeproducts">
-                <section className="eyeMakeupSection">
-                    <h1>Eye</h1>
-                </section>
+                <div className="imgContainer">
+                    <section className="eyeMakeupSection img">
+                        <h1>Eye</h1>
+                    </section>
+                    <div className="overlay"></div>
+                </div>
+
             </Link>
 
             <Link to="lipproducts">
-                <section className="lipMakeupSection">
-                    <h1>Lip</h1>
-                </section>
+                <div className="imgContainer">
+                    <section className="lipMakeupSection">
+                        <h1>Lip</h1>
+                    </section>
+                    <div className="overlay"></div>
+                </div>
             </Link>
 
             <Link to="faceproducts">
+                <div className="imgContainer">
                 <section className="faceMakeupSection">
                     <h1>Face</h1>
                 </section>
+                <div className="overlay"></div>
+                </div>
             </Link>
 
         </main>

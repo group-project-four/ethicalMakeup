@@ -11,6 +11,9 @@ const FaceProducts = () => {
     useEffect(() => {
         axios({
             url: "http://makeup-api.herokuapp.com/api/v1/products.json",
+            params: {
+                product_tags: "vegan"
+            }
         }).then((response) => {
             setProduct(response.data);
             console.log(response.data);
@@ -26,19 +29,13 @@ const FaceProducts = () => {
     );
 
 
-    // Filter array for products that don't have a price & filter out products/pictures that don't fit:
+    // Filter array for products that don't have a price:
     const faceProductAdj = faceProducts.filter(
         (products) =>
             products.price !== "0.0" &&
             products.price !== null &&
             products.name !== "No Filter Foundation" &&
-            products.name !== "Serum Foundation" &&
-            products.name !== "Coverage Foundation" &&
-            products.name !== "Cloud Paint" &&
-            products.name !== "Stretch Concealer" &&
-            products.name !== "Wowder" &&
-            products.name !== "Haloscope" &&
-            products.name !== "Perfecting Skin Tint"
+            products.name !== "Serum Foundation"
     );
 
     // Error handling for images that are broken
