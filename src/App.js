@@ -1,5 +1,5 @@
 //importing libraries
-import './App.css';
+import './App.scss';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 //importing components
