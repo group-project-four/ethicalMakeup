@@ -22,7 +22,6 @@ const ProductPage = () => {
             }
         })
     }, [])
-
     const { image_link, description, product_link, brand, name, rating } = individualProducts
     return (
         <div>
@@ -36,7 +35,7 @@ const ProductPage = () => {
                     alt={`product of ${brand} brand`}
                 />
                 <a href={product_link}>Product link</a>
-                <CustomerReview product={individualProducts} />
+                <CustomerReview product={productID.productID} />
             </div>
         </div>
     )
