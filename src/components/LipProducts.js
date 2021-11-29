@@ -12,6 +12,9 @@ const LipProducts = () => {
     useEffect(() => {
         axios({
             url: "http://makeup-api.herokuapp.com/api/v1/products.json",
+            params: {
+                product_tags: "vegan"
+            }
         }).then((response) => {
             setProduct(response.data);
             // console.log(response.data);
@@ -25,17 +28,13 @@ const LipProducts = () => {
             products.product_type === "lip_liner"
     );
 
-    // Filter array for products that don't have a price & filter out products/pictures that don't fit:
+    // Filter array for products that don't have a price:
     const lipProductAdj = lipProducts.filter(
         (products) =>
             products.price !== "0.0" &&
-            products.price !== null &&
-            products.name !== "Generation G" &&
-            products.name !== "Lipstick" &&
-            products.name !== "Lippie Stix" &&
-            products.name !== "Lippie Pencil" &&
-            products.name !== "Blotted Lip"
+            products.price !== null 
     );
+   
 
     // Error handling for images that are broken
     function imgError(image) {
@@ -47,7 +46,7 @@ const LipProducts = () => {
         <div>
             <MainNav />
             <div className="sectionWrapper">
-                <h2>Lip</h2>
+                <h2>Lip Makeup</h2>
                 <ul className="productSection">
                     {lipProductAdj.map((product) => {
                         return (
