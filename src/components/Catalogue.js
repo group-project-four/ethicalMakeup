@@ -1,5 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom'
 
+import MainNav from './MainNav';
+
 const Catalogue = () => {
 
 
@@ -14,6 +16,7 @@ const Catalogue = () => {
 
     return (
         <main>
+            <MainNav />
             <Link to="eyeproducts">
                 <section className="eyeMakeupSection">
                     <h2>Eye</h2>

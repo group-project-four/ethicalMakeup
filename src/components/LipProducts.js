@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 
+import MainNav from "./MainNav";
+
 const LipProducts = () => {
     // Set all products from API to state
     const [products, setProduct] = useState([]);
@@ -12,7 +14,7 @@ const LipProducts = () => {
             url: "http://makeup-api.herokuapp.com/api/v1/products.json",
         }).then((response) => {
             setProduct(response.data);
-            console.log(response.data);
+            // console.log(response.data);
         });
     }, []);
 
@@ -43,6 +45,7 @@ const LipProducts = () => {
 
     return (
         <div>
+            <MainNav />
             <h2>Lip</h2>
             <ul className="productSection">
                 {lipProductAdj.map((product) => {
