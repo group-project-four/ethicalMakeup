@@ -1,9 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import { useState } from 'react'
 
-import Catalogue from './Catalogue'
-import MainPage from './MainPage'
-import App from '../App'
 
 const NavbarTop = (props) => {
 
@@ -24,8 +21,7 @@ const NavbarTop = (props) => {
             <nav>
                 <ul>
                     <li>
-                        {/* <Link to="/">Home</Link> */}
-                        <a href="#">Home</a>
+                        <Link to="/">Home</Link>
                     </li>
                     <li>
                         <a href="#">About us</a>
@@ -45,11 +41,6 @@ const NavbarTop = (props) => {
                     onChange={handleChange}
                 />
             </form>
-
-            <Routes>
-                <Route path="catalogue" element={<Catalogue />} />
-                {/* <Route path="/" element={<MainPage />} /> */}
-            </Routes>
         </div>
     )
 }
