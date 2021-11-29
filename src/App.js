@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 
 //importing components
-import MainNav from './components/MainNav';
+// import MainNav from './components/MainNav';
 import ProductPage from './components/ProductPage';
 import Catalogue from './components/Catalogue';
 import EyeProducts from './components/EyeProducts';

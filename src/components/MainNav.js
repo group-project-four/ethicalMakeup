@@ -1,11 +1,13 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-import Catalogue from './Catalogue'
-import { Routes, Route, Link } from 'react-router-dom'
+import {useState } from 'react'
+// import { useEffect } from 'react'
+// import Catalogue from './Catalogue'
+import { Link } from 'react-router-dom'
+// import { Routes, Route } from 'react-router'
 
 
 // import NavbarTop from './NavbarTop'
-import ProductPage from './ProductPage'
+// import ProductPage from './ProductPage'
 import Posts from './Posts'
 import Pagination from './Pagination'
 import SearchedProducts from './SearchedProducts'
@@ -17,7 +19,7 @@ const MainNav = () => {
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(10)
-    const [sortedProducts, setSortedProducts] = useState([])
+    // const [sortedProducts, setSortedProducts] = useState([])
     const [inputSearch, setInputSearch] = useState('')
 
     const handleQuery = (query) => {
