@@ -11,6 +11,7 @@ import LipProducts from './components/LipProducts';
 import FaceProducts from './components/FaceProducts';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
+
 function App() {
 
   return (
