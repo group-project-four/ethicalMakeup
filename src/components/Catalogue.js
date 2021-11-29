@@ -19,19 +19,19 @@ const Catalogue = () => {
             <MainNav />
             <Link to="eyeproducts">
                 <section className="eyeMakeupSection">
-                    <h2>Eye</h2>
+                    <h1>Eye</h1>
                 </section>
             </Link>
 
             <Link to="lipproducts">
                 <section className="lipMakeupSection">
-                    <h2>Lip</h2>
+                    <h1>Lip</h1>
                 </section>
             </Link>
 
             <Link to="faceproducts">
                 <section className="faceMakeupSection">
-                    <h2>Face</h2>
+                    <h1>Face</h1>
                 </section>
             </Link>
 
