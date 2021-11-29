@@ -1,7 +1,27 @@
 import MainNav from "./MainNav"
-
+import { useEffect} from "react"
+import {useState} from 'react'
+import axios from 'axios'
+import Notable from './Notable'
 
 const HomePage = () => {
+    const [temp,setTemp] = useState([])
+    useEffect(() => {
+        axios({
+            url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
+            params: {
+                product_tags: 'Vegan',
+                price_less_than: 5,
+                rating_greater_than: 4.3
+            }
+        }).then(response => {
+            setTemp(response.data)
+        })
+    },[])
+
+    /**
+     * goal is to get 6 products that are using the vegan tag and display it to the page
+     */
     return (
         <main>
             <MainNav />
@@ -10,15 +30,9 @@ const HomePage = () => {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
                 <button>Start free trial</button>
             </section>
-            <section className="companies">
-                <ul>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                    <li><img src="" alt="" /></li>
-                </ul>
+            
+            <section className="products">
+                <Notable array={temp} /> 
             </section>
             <section className="feature">
                 <div className="featureContentContainer">
