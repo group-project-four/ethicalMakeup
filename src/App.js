@@ -1,5 +1,5 @@
 //importing libraries
-import './App.scss';
+import './App.scss'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 //importing components
@@ -35,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default App 
