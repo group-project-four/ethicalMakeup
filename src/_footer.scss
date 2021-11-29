@@ -2,6 +2,7 @@
 footer{
     width: 80%;
     margin: 0 auto;
+    margin-top: 20px;
     .topSection{
         display: flex;
         border-bottom: black 1px solid;
@@ -12,7 +13,7 @@ footer{
         ul{
             display: flex;
             li{
-                padding-left: 10px;
+                padding-left: 20px;
             }
         }
     }
@@ -23,7 +24,7 @@ footer{
             display: flex;
             align-self: center;
             a{
-                padding-left: 10px;
+                padding-left: 20px;
                 color: black;
             }
         }

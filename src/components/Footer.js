@@ -1,19 +1,26 @@
 import { SiLinkedin } from "react-icons/si";
 import { SiTwitter } from "react-icons/si";
 import { SiInstagram } from "react-icons/si";
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
         <footer>
             <div className="topSection">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/">Blog</Link>
+                    </li>
                 </ul>
                 <p>Ethical Makeup</p>
                 <ul>
                     <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Catalogue</a></li>
+                    <li>
+                        <Link to="/catalogue">Catalogue</Link>
+                    </li>
                 </ul>
             </div>
             <div className="bottomSection">
