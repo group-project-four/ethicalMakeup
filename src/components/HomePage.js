@@ -28,10 +28,11 @@ const HomePage = () => {
             <section className="header">
                 <h1>Value Proposition</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
-                <button>Start free trial</button>
+                <button>Discover More</button>
             </section>
             
             <section className="products">
+            <h2>Trusted by makeup enthusiasts everywhere</h2>
                 <Notable array={temp} /> 
             </section>
             <section className="feature">
