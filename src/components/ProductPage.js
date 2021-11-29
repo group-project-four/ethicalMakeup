@@ -26,17 +26,23 @@ const ProductPage = () => {
     return (
         <div>
             <MainNav />
-            <div>
-                <h2>{name}</h2>
-                <p>{description}</p>
-                <p>{rating}</p>
-                <img
-                    src={image_link}
-                    alt={`product of ${brand} brand`}
-                />
-                <a href={product_link}>Product link</a>
-                <CustomerReview product={productID.productID} />
-            </div>
+            <section className="productInfoContainer">
+                <div className="column1">
+                    <img
+                        src={image_link}
+                        alt={`product of ${brand} brand`}
+                    />
+                </div>
+                <div className="column2">
+                    <h2>{name}</h2>
+                    <p className="rating">Rating: {rating} / 5</p>
+                    <p className="description">{description}</p>
+                    <a className="productLink" href={product_link}>Purchase</a>
+                </div>
+            </section>
+            <section className="productReviewContainer">
+                <CustomerReview />
+            </section>
         </div>
     )
 }
