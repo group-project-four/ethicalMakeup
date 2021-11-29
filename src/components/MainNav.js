@@ -20,24 +20,24 @@ const MainNav = () => {
     const [sortedProducts, setSortedProducts] = useState([])
     const [inputSearch, setInputSearch] = useState('')
 
-    const handleQuery = (query) => {
-        axios({
-            url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
-            params: {
-                product_type: query,
-            }
-        }).then((response) => {
-            if (response.data.length !== 0) {
-                console.log(response.data)
-                // const firstTwenty = response.data.slice(0,20)
-                setProduct(response.data)
-                setLoading(false)
-                setErrorMessage('')
-            } else (
-                setErrorMessage('please enter a valid search term')
-            )
-        })
-    }
+    // const handleQuery = (query) => {
+    //     axios({
+    //         url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
+    //         params: {
+    //             product_type: query,
+    //         }
+    //     }).then((response) => {
+    //         if (response.data.length !== 0) {
+    //             console.log(response.data)
+    //             // const firstTwenty = response.data.slice(0,20)
+    //             setProduct(response.data)
+    //             setLoading(false)
+    //             setErrorMessage('')
+    //         } else (
+    //             setErrorMessage('please enter a valid search term')
+    //         )
+    //     })
+    // }
 
     // useEffect(() => {
     //     setSortedProducts(filteredPrice)
@@ -48,30 +48,30 @@ const MainNav = () => {
 
     // }, [sortedProducts])
 
-    const handleFormSubmit = (event) => {
-        event.preventDefault()
-        // if (inputSearch !== ''){
-        handleQuery(inputSearch)
-            // return true;
-        // }else{
-        //     return false;
-        // }
-    }
+    // const handleFormSubmit = (event) => {
+    //     event.preventDefault()
+    //     // if (inputSearch !== ''){
+    //     handleQuery(inputSearch)
+    //         // return true;
+    //     // }else{
+    //     //     return false;
+    //     // }
+    // }
 
     const handleChange = (event) => {
         setInputSearch(event.target.value)
     }
 
-    const indexOfLastPost = currentPage * postsPerPage
-    const indexOfFirstPost = indexOfLastPost - postsPerPage
-    const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
-    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+    // const indexOfLastPost = currentPage * postsPerPage
+    // const indexOfFirstPost = indexOfLastPost - postsPerPage
+    // const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber)
     // setSortedProducts(products.slice(indexOfFirstPost, indexOfLastPost))
 
 
-    const filteredPrice = currentPosts.filter((productFiltered) => {
-        return productFiltered.price > 0.0
-    })
+    // const filteredPrice = currentPosts.filter((productFiltered) => {
+    //     return productFiltered.price > 0.0
+    // })
     // setSortedProducts(filteredPrice)
 
     // const handleChangeOption = (event) => {
@@ -104,7 +104,7 @@ const MainNav = () => {
                         </ul>
                     </nav>
 
-                    <form onSubmit={handleFormSubmit}>
+                    {/* <form onSubmit={handleFormSubmit}>
                         <label htmlFor="searchTab"></label>
                         <input
                             type="text"
@@ -112,10 +112,26 @@ const MainNav = () => {
                             value={inputSearch}
                             onChange={handleChange}
                         />
+                    </form> */}
+                    <form>
+                        <label htmlFor="searchTab"></label>
+                        <input
+                            type="text"
+                            id="searchTab"
+                            value={inputSearch}
+                            onChange={handleChange}
+                        />
+                        <Link to={`product_type=${inputSearch}`} state={{from:{inputSearch}}}>
+                            <button>click</button>
+                        </Link>
+                    
+            
                     </form>
                 </div>
+
+
                 {/* <NavbarTop handleQuery={handleQuery} /> */}
-                {errorMessage}
+                {/* {errorMessage} */}
                 {/* <section>
                     <label htmlFor="sorting"></label>
                     <select name="sorting" id="sorting" onChange={handleChangeOption}>
@@ -144,9 +160,9 @@ const MainNav = () => {
                         })
                     }
                 </ul> */}
-                <SearchedProducts filteredPrice={filteredPrice}/>
-                <Posts products={currentPosts} loading={loading} />
-                <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />
+                {/* <SearchedProducts filteredPrice={filteredPrice}/> */}
+                {/* <Posts products={currentPosts} loading={loading} />
+                <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} /> */}
             </ul>
         </div>
     )

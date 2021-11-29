@@ -11,6 +11,7 @@ import Catalogue from './components/Catalogue';
 import EyeProducts from './components/EyeProducts';
 import LipProducts from './components/LipProducts';
 import FaceProducts from './components/FaceProducts';
+import SearchedProducts from './components/SearchedProducts';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           </Link>
         </header>
         <Routes>
+          <Route path='/:productType/' element={<SearchedProducts/>} />
           <Route path="/*" element={<JamesComponent />} />
           <Route path="/:productID" element={<ProductPage />} />
           <Route path="/catalogue" element={<Catalogue />} />
