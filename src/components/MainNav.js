@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AiOutlineSearch } from "react-icons/ai"
+import { BsSearch } from "react-icons/bs"
 
-import Posts from './Posts'
-import Pagination from './Pagination'
 import SearchedProducts from './SearchedProducts'
+import Pagination from './Pagination'
+import Posts from './Posts'
 
 const MainNav = () => {
     const [products, setProduct] = useState([])
@@ -29,7 +29,7 @@ const MainNav = () => {
                 setLoading(false)
                 setErrorMessage('')
             } else (
-                setErrorMessage('please enter a valid search term')
+                setErrorMessage('There were no products found!')
             )
         })
     }
@@ -52,9 +52,8 @@ const MainNav = () => {
     }
 
     const handleSearchBar = (event) => {
-        console.log('hello')
         event.target.style.width = '200px'
-        event.target.style.display = 'block'
+        event.target.style.border = 'black solid 2px'
     }
 
     const indexOfLastPost = currentPage * postsPerPage
@@ -83,7 +82,7 @@ const MainNav = () => {
                     <form onSubmit={handleFormSubmit} className="right">
                         <label htmlFor="searchTab"></label>
                         <div>
-                            <AiOutlineSearch onMouseOver={handleSearchTag}/>
+                            <BsSearch onMouseOver={handleSearchTag} />
                             <input
                                 type="text"
                                 id="searchTab"
@@ -94,7 +93,9 @@ const MainNav = () => {
                         </div>
                     </form>
                 </div>
-                {errorMessage}
+                <div className="error">
+                    <p>{errorMessage}</p>
+                </div>
                 <SearchedProducts currentPosts={currentPosts} />
                 <Posts products={currentPosts} loading={loading} />
                 <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />

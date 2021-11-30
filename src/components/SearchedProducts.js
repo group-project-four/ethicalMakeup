@@ -20,7 +20,7 @@ const SearchedProducts = (props) => {
                                         />
                                 </Link>
                                 <h3>{product.name}</h3>
-                                <p>$ {product.price}</p>
+                                <p>$</p>
                                 <button>More Info</button>
                             </div>
                         )
