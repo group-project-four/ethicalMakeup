@@ -7,6 +7,8 @@ const CustomerReview = (props) => {
     const [reviews, setReviews] = useState([])
     const [recommendation, setRecommendation] = useState('')
     const [input, setInput] = useState('')
+    const [rating, setRating] =  useState(0)
+    const [ratingIcon, setRatingIcon] = useState('')
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
@@ -25,13 +27,19 @@ const CustomerReview = (props) => {
         setInput(event.target.value)
     }
 
+    const handleRatingChange = (event) => {
+        setRating(event.target.value)
+        
+    }
+
     function addToDatabase(props) {
         const dbRef = firebase.database().ref(`${props.product}`)
         dbRef.push(
             {
                 "name": `${name}`,
                 "review": `${input}`,
-                "checkbox": `${recommendation}`
+                "checkbox": `${recommendation}`,
+                "rating": `${rating}`
             }
         )
     }
@@ -56,7 +64,6 @@ const CustomerReview = (props) => {
             const data = response.val()
             let newArray = []
             for (let key in data) {
-                console.log(data[key])
                 newArray.push(data[key])
             }
             setReviews(newArray)
@@ -99,6 +106,14 @@ const CustomerReview = (props) => {
                                 <input type="checkbox" id="checkbox" value={'no'} onChange={handleCheckbox} />
                             </div>
                         </div>
+                        <label htmlFor="rating" className="visuallyHidden">Rating 1-5</label>
+                        <p className="ratingLabel">Your rating:</p>
+                        <div className="sliderContainer">
+                            <input type="range" id="rating" className="ratingSlider" name="rating"
+                            min="1" max="5" step="1" defaultValue={rating} onChange={handleRatingChange}/>
+                            <output className="output">{rating}</output>
+                        </div>
+                        
 
                         <input type="submit" value="Post" className="submitButton" />
                     </form>
@@ -111,10 +126,10 @@ const CustomerReview = (props) => {
                         <h2>Product Reviews:</h2>
                         {
                             reviews.map((review, index) => {
-                                console.log(review.review)
                                 return (
                                     <li key={index} className="singleReview">
                                         <h3>{review.name}</h3>
+                                        <p>{review.rating} / 5</p>
                                         <p>{review.review}</p>
                                         <p>{review.checkbox}</p>
                                     </li>
