@@ -108,11 +108,12 @@ const CustomerReview = (props) => {
             {
                 reviews.length > 0 ?
                     <ul className="reviewsSection">
+                        <h2>Product Reviews:</h2>
                         {
                             reviews.map((review, index) => {
                                 console.log(review.review)
                                 return (
-                                    <li key={index}>
+                                    <li key={index} className="singleReview">
                                         <h3>{review.name}</h3>
                                         <p>{review.review}</p>
                                         <p>{review.checkbox}</p>
