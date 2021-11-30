@@ -1,11 +1,11 @@
 import axios from 'axios'
-import {useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AiOutlineSearch } from "react-icons/ai"
+import { BsSearch } from "react-icons/bs"
 
-import Posts from './Posts'
-import Pagination from './Pagination'
 import SearchedProducts from './SearchedProducts'
+import Pagination from './Pagination'
+import Posts from './Posts'
 
 const MainNav = () => {
     const [products, setProduct] = useState([])
@@ -20,6 +20,7 @@ const MainNav = () => {
             url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
             params: {
                 product_type: query,
+                product_tags: "vegan"
             }
         }).then((response) => {
             if (response.data.length !== 0) {
@@ -28,7 +29,7 @@ const MainNav = () => {
                 setLoading(false)
                 setErrorMessage('')
             } else (
-                setErrorMessage('please enter a valid search term')
+                setErrorMessage('There were no products found!')
             )
         })
     }
@@ -41,14 +42,19 @@ const MainNav = () => {
     const filteredPrice = products.filter((productFiltered) => {
         return productFiltered.price > 0.0
     })
-    
+
     const handleChange = (event) => {
         setInputSearch(event.target.value)
     }
 
-    // const handleSearchBar = () => {
-    //     style= {{width: '50px'}}
-    // }
+    const handleSearchTag = (event) => {
+        event.target.style.display = 'none'
+    }
+
+    const handleSearchBar = (event) => {
+        event.target.style.width = '200px'
+        event.target.style.border = 'black solid 2px'
+    }
 
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
@@ -72,22 +78,24 @@ const MainNav = () => {
                             </li>
                         </ul>
                     </nav>
-
                     <form onSubmit={handleFormSubmit} className="right">
                         <label htmlFor="searchTab"></label>
-                        {/* <div onMouseOver={handleSearchBar}>
-                            <AiOutlineSearch />
-                        </div> */}
-                        <input
-                            type="text"
-                            id="searchTab"
-                            value={inputSearch}
-                            onChange={handleChange}
-                        />
+                        <div>
+                            <BsSearch onMouseOver={handleSearchTag} />
+                                <input
+                                    type="text"
+                                    id="searchTab"
+                                    value={inputSearch}
+                                    onChange={handleChange}
+                                    onMouseOver={handleSearchBar}
+                                />
+                        </div>
                     </form>
                 </div>
-                {errorMessage}
-                <SearchedProducts currentPosts={currentPosts}/>
+                <div className="error">
+                    <p>{errorMessage}</p>
+                </div>
+                <SearchedProducts currentPosts={currentPosts} />
                 <Posts products={currentPosts} loading={loading} />
                 <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />
             </ul>

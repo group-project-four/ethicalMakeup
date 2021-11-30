@@ -1,6 +1,7 @@
 //importing libraries
-import './App.scss';
+import './App.scss'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Logo from './images/EthicalMakeupLogo.png'
 
 //importing components
 import ProductPage from './components/ProductPage';
@@ -10,6 +11,7 @@ import LipProducts from './components/LipProducts';
 import FaceProducts from './components/FaceProducts';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
+import SearchedProducts from './components/SearchedProducts';
 
 function App() {
 
@@ -18,7 +20,10 @@ function App() {
       <div className="App">
         <header>
           <Link to="/" style={{textDecoration:'none'}}>
-            <h1>Ethical Makeup</h1>
+            <div className="logoContainer">
+              <img src={Logo} alt="Ethical Makeup Logo" className="logo"/>
+            </div>
+            
           </Link>
         </header>
         <Routes>
@@ -28,6 +33,7 @@ function App() {
           <Route path="/catalogue/eyeproducts" element={<EyeProducts />}/>
           <Route path="/catalogue/lipproducts" element={<LipProducts />}/>
           <Route path="/catalogue/faceproducts" element={<FaceProducts />}/>
+          {/* <Route path="/searchedProducts" element={<SearchedProducts/>}/> */}
         </Routes>
       </div>
       <Footer /> 
@@ -35,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default App 

@@ -1,56 +1,130 @@
-// import firebase from './firebase'
-import firebase from '../firebase'
-import { useState } from 'react'
 
-const CustomerReview = () => {
-    const [inputSearch, setInputSearch] = useState('')
-    const [inputReviews, setInputReview] = useState([])
+import firebase from '../firebase'
+import { useEffect, useState } from 'react'
+
+const CustomerReview = (props) => {
+    const [name, setName] = useState('')
+    const [reviews, setReviews] = useState([])
+    const [recommendation, setRecommendation] = useState('')
+    const [input, setInput] = useState('')
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        const dbRef = firebase.database().ref()
-        dbRef.push(inputSearch)
-        console.log("hello");
-        // setInputSearch = ("");
-        dbRef.on('value', (response) => {
-            const newState = []
-            const data = response.val()
-    
-            for (let object in data) {
-                newState.push(data[object])
+        addToDatabase(props)
+        setName('')
+        setInput('')
+    }
+
+    const handleInputChange = (event) => {
+        event.preventDefault()
+        setName(event.target.value)
+
+    }
+
+    const handleTextAreaChange = (event) => {
+        setInput(event.target.value)
+    }
+
+    function addToDatabase(props) {
+        const dbRef = firebase.database().ref(`${props.product}`)
+        dbRef.push(
+            {
+                "name": `${name}`,
+                "review": `${input}`,
+                "checkbox": `${recommendation}`
             }
-            setInputReview(newState)
-    
+        )
+    }
+
+    function handleCheckbox(event) {
+        let recommend
+        if (event.target.value === 'yes') {
+            recommend = 'The user does not recommend this product'
+        } else {
+            recommend = 'The user recommends this product'
+        }
+        setRecommendation(recommend)
+
+    }
+
+    useEffect(() => {
+
+        console.log(props)
+        const dbRef = firebase.database().ref(`${props.product}`)
+        console.log(dbRef)
+        dbRef.on('value', response => {
+            const data = response.val()
+            let newArray = []
+            for (let key in data) {
+                console.log(data[key])
+                newArray.push(data[key])
+            }
+            setReviews(newArray)
         })
-    }
-    const handleChange = (event) => {
-        // event.preventDefault()
-        setInputSearch(event.target.value);
-    }
-    
+    }, [])
+
     return (
         <div>
-            <form onSubmit={handleFormSubmit}>
-                    <label htmlFor="review">Feel free to share your thoughts...</label>
-                    <input
-                        type="text"
-                        id="review"
-                        value={inputSearch}
-                        onChange={handleChange}
-                    />
-            </form>
-            <ul>
-                {
-                    inputReviews.map((inputReview) => {
-                        return(
-                            <li>
-                               {inputReview}
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-            
+            <div className="formContainer">
+                <h3>Write a Review!</h3>
+                <div className="form">
+                    <form onSubmit={handleFormSubmit}>
+                        <label htmlFor="name" className="visuallyHidden">Your Name:</label>
+                        <input
+                            type="text"
+                            id="name"
+                            className="name"
+                            value={name}
+                            size={15}
+                            onChange={handleInputChange}
+                            placeholder="Your name"
+                            required
+                        />
+
+                        <label htmlFor="review" className="visuallyHidden">Your Review:</label>
+                        <textarea
+                            value={input}
+                            onChange={handleTextAreaChange}
+                            id="review"
+                            className="review"
+                            placeholder="Write your review here!"
+                            required
+                        />
+                        <div className="checkBoxes">
+                            <div>
+                                <label htmlFor="checkbox">Would Repurchase</label>
+                                <input type="checkbox" id="checkboxYes"  value={'yes'} onChange={handleCheckbox} /></div>
+                            <div>
+                                <label htmlFor="checkbox" >Would Not Repurchase</label>
+                                <input type="checkbox" id="checkbox" value={'no'} onChange={handleCheckbox} />
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Post" className="submitButton" />
+                    </form>
+                </div>
+            </div>
+
+            {
+                reviews.length > 0 ?
+                    <ul className="reviewsSection">
+                        <h2>Product Reviews:</h2>
+                        {
+                            reviews.map((review, index) => {
+                                console.log(review.review)
+                                return (
+                                    <li key={index} className="singleReview">
+                                        <h3>{review.name}</h3>
+                                        <p>{review.review}</p>
+                                        <p>{review.checkbox}</p>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul> :
+                    null
+            }
+
         </div>
     )
 }

@@ -16,14 +16,12 @@ const ProductPage = () => {
             url: `http://makeup-api.herokuapp.com/api/v1/products/${productID.productID}.json`,
         }).then((response) => {
             setIndividualProduct(response.data)
+        }).catch((error) => {
+            if (error.response) {
+                console.log(error.response)
+            }
         })
-            .catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                }
-            })
     }, [])
-
     const { image_link, description, product_link, brand, name, rating } = individualProducts
     return (
         <div>
@@ -43,9 +41,9 @@ const ProductPage = () => {
                 </div>
             </section>
             <section className="productReviewContainer">
-                <CustomerReview />
+                <CustomerReview product={productID.productID}/>
             </section>
-            
+
         </div>
     )
 }
