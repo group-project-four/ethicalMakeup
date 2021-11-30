@@ -80,7 +80,7 @@ const CustomerReview = (props) => {
                             />
                         
                         
-                        <input type="submit" value="Submit" className="submitButton"/>
+                        <input type="submit" value="Post" className="submitButton"/>
                     </form>
                 </div>
             </div>

@@ -20,8 +20,8 @@ const SearchedProducts = (props) => {
                                         />
                                 </Link>
                                 <h3>{product.name}</h3>
-                                <p>{product.price_sign}{product.price}</p>
-                                
+                                <p>$ {product.price}</p>
+                                <button>More Info</button>
                             </div>
                         )
                     })
