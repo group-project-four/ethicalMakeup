@@ -9,23 +9,9 @@ const CustomerReview = (props) => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        if (isBothInputs) {
-            addToDatabase(props)
-            setName('')
-            setInput('')
-        } else {
-            alert("both fields mandarory")
-        }
-
-        
-    }
-
-    const isBothInputs = () => {
-        if (name !== '' && input != '') {
-            return true;
-        } else {
-            return false;
-        }
+        addToDatabase(props)
+        setName('')
+        setInput('')
     }
 
     const handleInputChange = (event) => {
@@ -80,6 +66,7 @@ const CustomerReview = (props) => {
                                 size={15}
                                 onChange={handleInputChange}
                                 placeholder="Your name"
+                                required
                             />
                         
                         <label htmlFor="review" className="visuallyHidden">Your Review:</label>
@@ -89,6 +76,7 @@ const CustomerReview = (props) => {
                                 id="review"
                                 className="review"
                                 placeholder="Write your review here!"
+                                required
                             />
                         
                         
