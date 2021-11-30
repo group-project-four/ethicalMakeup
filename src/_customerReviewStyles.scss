@@ -72,3 +72,33 @@
         margin-right: 30px;
     }
 }
+
+.reviewsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        text-align: center;
+        width: 80%;
+        border-bottom: #9A8C98 2.2px solid;
+        padding-bottom: 3%;
+        margin-bottom: 2%;
+        margin-top: 10%;
+    }
+    .singleReview {
+        width: 80%;
+        padding-bottom: 1%;
+        padding-left: 2%;
+        margin: 1%;
+        background-color: #fdfbfa;
+        border-radius: 8px;
+        h3 {
+            font-size: 1.6rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+    }
+    
+}
+
