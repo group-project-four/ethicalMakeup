@@ -10,6 +10,7 @@ const CustomerReview = (props) => {
     const handleFormSubmit = (event) => {
         event.preventDefault()
         addToDatabase(props)
+        
     }
 
     const handleInputChange = (event) => {
@@ -50,26 +51,39 @@ const CustomerReview = (props) => {
 
     return (
         <div>
-            <form onSubmit={handleFormSubmit}>
-                <label htmlFor="review">Feel free to share your thoughts...
-                    <input
-                        type="text"
-                        id="name"
-                        value={name}
-                        size={15}
-                        onChange={handleInputChange}
-                    />
-                    <textarea
-                        value={input}
-                        onChange={handleTextAreaChange} 
-                    />
-                </label>
-                <input type="submit" value="Submit"/>
-            </form>
+            <div className="formContainer">
+                <h3>Write a Review!</h3>
+                <div className="form">
+                    <form onSubmit={handleFormSubmit}>
+                        <label htmlFor="name" className="visuallyHidden">Your Name:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                className="name"
+                                value={name}
+                                size={15}
+                                onChange={handleInputChange}
+                                placeholder="Your name"
+                            />
+                        
+                        <label htmlFor="review" className="visuallyHidden">Your Review:</label>
+                            <textarea
+                                value={input}
+                                onChange={handleTextAreaChange} 
+                                id="review"
+                                className="review"
+                                placeholder="Write your review here!"
+                            />
+                        
+                        
+                        <input type="submit" value="Submit" className="submitButton"/>
+                    </form>
+                </div>
+            </div>
 
             {
                 reviews.length > 0 ? 
-                <ul>
+                <ul className="reviewsSection">
                     {
                         reviews.map((review,index) => {
                             console.log(review.review)
