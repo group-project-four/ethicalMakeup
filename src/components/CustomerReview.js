@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 const CustomerReview = (props) => {
     const [name, setName] = useState('')
     const [reviews, setReviews] = useState([])
+    const [recommendation, setRecommendation] = useState('')
     const [input, setInput] = useState('')
 
     const handleFormSubmit = (event) => {
@@ -21,26 +22,37 @@ const CustomerReview = (props) => {
     }
 
     const handleTextAreaChange = (event) => {
-        event.preventDefault()
         setInput(event.target.value)
     }
 
     function addToDatabase(props) {
         const dbRef = firebase.database().ref(`${props.product}`)
         dbRef.push(
-            { 
+            {
                 "name": `${name}`,
-                "review": `${input}`
+                "review": `${input}`,
+                "checkbox": `${recommendation}`
             }
         )
     }
 
+    function handleCheckbox(event) {
+        let recommend
+        if (event.target.value === 'yes') {
+            recommend = 'The user does not recommend this product'
+        } else {
+            recommend = 'The user recommends this product'
+        }
+        setRecommendation(recommend)
+
+    }
+
     useEffect(() => {
-        
+
         console.log(props)
         const dbRef = firebase.database().ref(`${props.product}`)
         console.log(dbRef)
-        dbRef.on('value',response => {
+        dbRef.on('value', response => {
             const data = response.val()
             let newArray = []
             for (let key in data) {
@@ -49,7 +61,7 @@ const CustomerReview = (props) => {
             }
             setReviews(newArray)
         })
-    },[])
+    }, [])
 
     return (
         <div>
@@ -58,51 +70,60 @@ const CustomerReview = (props) => {
                 <div className="form">
                     <form onSubmit={handleFormSubmit}>
                         <label htmlFor="name" className="visuallyHidden">Your Name:</label>
-                            <input
-                                type="text"
-                                id="name"
-                                className="name"
-                                value={name}
-                                size={15}
-                                onChange={handleInputChange}
-                                placeholder="Your name"
-                                required
-                            />
-                        
+                        <input
+                            type="text"
+                            id="name"
+                            className="name"
+                            value={name}
+                            size={15}
+                            onChange={handleInputChange}
+                            placeholder="Your name"
+                            required
+                        />
+
                         <label htmlFor="review" className="visuallyHidden">Your Review:</label>
-                            <textarea
-                                value={input}
-                                onChange={handleTextAreaChange} 
-                                id="review"
-                                className="review"
-                                placeholder="Write your review here!"
-                                required
-                            />
-                        
-                        
-                        <input type="submit" value="Post" className="submitButton"/>
+                        <textarea
+                            value={input}
+                            onChange={handleTextAreaChange}
+                            id="review"
+                            className="review"
+                            placeholder="Write your review here!"
+                            required
+                        />
+                        <div className="checkBoxes">
+                            <div>
+                                <label htmlFor="checkbox">Would Repurchase</label>
+                                <input type="checkbox" id="checkboxYes"  value={'yes'} onChange={handleCheckbox} /></div>
+                            <div>
+                                <label htmlFor="checkbox" >Would Not Repurchase</label>
+                                <input type="checkbox" id="checkbox" value={'no'} onChange={handleCheckbox} />
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Post" className="submitButton" />
                     </form>
                 </div>
             </div>
 
             {
-                reviews.length > 0 ? 
-                <ul className="reviewsSection">
-                    {
-                        reviews.map((review,index) => {
-                            console.log(review.review)
-                            return(
-                                <li key={index}>
-                                    <h3>{review.name}</h3>
-                                    <p>{review.review}</p>
-                                </li>
-                            )
-                        })
-                    }
-                </ul> :
-                null
+                reviews.length > 0 ?
+                    <ul className="reviewsSection">
+                        {
+                            reviews.map((review, index) => {
+                                console.log(review.review)
+                                return (
+                                    <li key={index}>
+                                        <h3>{review.name}</h3>
+                                        <p>{review.review}</p>
+                                        <p>{review.checkbox}</p>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul> :
+                    null
             }
-            
+
         </div>
     )
 }
