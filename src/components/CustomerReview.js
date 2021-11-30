@@ -10,12 +10,14 @@ const CustomerReview = (props) => {
     const handleFormSubmit = (event) => {
         event.preventDefault()
         addToDatabase(props)
-        
+        setName('')
+        setInput('')
     }
 
     const handleInputChange = (event) => {
         event.preventDefault()
         setName(event.target.value)
+
     }
 
     const handleTextAreaChange = (event) => {
@@ -64,6 +66,7 @@ const CustomerReview = (props) => {
                                 size={15}
                                 onChange={handleInputChange}
                                 placeholder="Your name"
+                                required
                             />
                         
                         <label htmlFor="review" className="visuallyHidden">Your Review:</label>
@@ -73,10 +76,11 @@ const CustomerReview = (props) => {
                                 id="review"
                                 className="review"
                                 placeholder="Write your review here!"
+                                required
                             />
                         
                         
-                        <input type="submit" value="Submit" className="submitButton"/>
+                        <input type="submit" value="Post" className="submitButton"/>
                     </form>
                 </div>
             </div>

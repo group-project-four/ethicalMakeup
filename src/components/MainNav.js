@@ -20,6 +20,7 @@ const MainNav = () => {
             url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
             params: {
                 product_type: query,
+                product_tags: "vegan"
             }
         }).then((response) => {
             if (response.data.length !== 0) {

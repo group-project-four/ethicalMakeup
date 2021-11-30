@@ -1,6 +1,7 @@
 //importing libraries
 import './App.scss'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Logo from './images/EthicalMakeupLogo.png'
 
 //importing components
 import ProductPage from './components/ProductPage';
@@ -18,7 +19,10 @@ function App() {
       <div className="App">
         <header>
           <Link to="/" style={{textDecoration:'none'}}>
-            <h1>Ethical Makeup</h1>
+            <div className="logoContainer">
+              <img src={Logo} alt="Ethical Makeup Logo" className="logo"/>
+            </div>
+            
           </Link>
         </header>
         <Routes>

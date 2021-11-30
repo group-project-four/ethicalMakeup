@@ -42,6 +42,11 @@ a {
     font-weight: 400;
     font-size: 1.2rem;
     color: #22223B;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #9A8C98;
 }
 
 button {
