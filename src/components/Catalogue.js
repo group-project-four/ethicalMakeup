@@ -4,16 +4,6 @@ import MainNav from './MainNav';
 
 const Catalogue = () => {
 
-
-
-    // Error handling for images that are broken
-    // function imgError(image) {
-    //     image.target.src =
-    //         "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";
-    // }
-
-
-
     return (
         <main>
             {/* <MainNav /> */}

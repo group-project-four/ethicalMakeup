@@ -7,8 +7,7 @@ const CustomerReview = (props) => {
     const [reviews, setReviews] = useState([])
     const [recommendation, setRecommendation] = useState('')
     const [input, setInput] = useState('')
-    const [radioOne, setRadioOne] = useState(false)
-    const [radioTwo, setRadioTwo] = useState(false)
+    // const [checkbox, setCheckbox] = useState(false)
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
@@ -33,25 +32,37 @@ const CustomerReview = (props) => {
             {
                 "name": `${name}`,
                 "review": `${input}`,
-                "radio": `${recommendation}`
+                "checkbox": `${recommendation}`
             }
         )
     }
 
-    function handleRadio(event) {
-        let recommend
-        if (event.target.value === 'yes') {
-            recommend = 'The user recommends this product'
+    // function handleRadio(event) {
+    //     let recommend
+    //     if (event.target.value === 'yes') {
+    //         recommend = 'The user recommends this product'
 
-        } else {
-            recommend = 'The user does not recommend this product'
-        }
-        setRecommendation(recommend)
-    }
+    //     } else  {
+    //         recommend = 'The user does not recommend this product'
+    //     }
+    //     setRecommendation(recommend)
+    //     event.target.value = ''
+    // }
+
+     function handleRadio(event) {
+        
+        const target = event.target;
+        console.log(target)
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
+        // const name = target.name;
+    
+        // this.setState({
+        //   [name]: value
+        // });
+      }
 
     useEffect(() => {
 
-        // console.log(props)
         const dbRef = firebase.database().ref(`${props.product}`)
         console.log(dbRef)
         dbRef.on('value', response => {
@@ -92,16 +103,10 @@ const CustomerReview = (props) => {
                             placeholder="Write your review here!"
                             required
                         />
-                        <div className="checkBoxes">
-                            <div>
-                            
-                                <label htmlFor="checkbox">Would Repurchase</label>
-                                <input type="radio" id="radio" name='one' value={'yes', radioOne} onChange={handleRadio}  />
-                            </div>
-                            <div>
-                                <label htmlFor="radio" >Would Not Repurchase</label>
-                                <input type="radio" id="radio" name='two' value={'no', radioTwo} onChange={handleRadio} />
-                            </div>
+                        
+                        <div className="checkBoxes" onChange={handleRadio}>
+                            <label htmlFor="checkbox">Would you repurchase the product?</label>
+                            <input type="checkbox" id="checkbox" value='yes' />                        
                         </div>
 
                         <input type="submit" value="Post" className="submitButton" />
@@ -112,11 +117,12 @@ const CustomerReview = (props) => {
             {
                 reviews.length > 0 ?
                     <ul className="reviewsSection">
+                        <h2>Product Reviews:</h2>
                         {
                             reviews.map((review, index) => {
                                 console.log(review.review)
                                 return (
-                                    <li key={index}>
+                                    <li key={index} className="singleReview">
                                         <h3>{review.name}</h3>
                                         <p>{review.review}</p>
                                         <p>{review.checkbox}</p>

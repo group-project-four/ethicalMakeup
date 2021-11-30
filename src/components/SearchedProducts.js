@@ -12,6 +12,7 @@ const SearchedProducts = (props) => {
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
+    const [orderedPost, setOrderedPost] = useState([])
 
     const { productName } = useParams()
 
@@ -28,7 +29,11 @@ const SearchedProducts = (props) => {
             }
         }).then((response) => {
             if (response.data.length !== 0) {
-                setProduct(response.data)
+                const dataToFilter = response.data
+                const filteredData = dataToFilter.filter((productFiltered) => {
+                    return productFiltered.price > 0.0
+                })                
+                setProduct(filteredData)
                 setLoading(false)
                 setErrorMessage('')
             } else {
@@ -38,13 +43,21 @@ const SearchedProducts = (props) => {
         })
     }
 
-    const filteredPrice = products.filter((productFiltered) => {
-        return productFiltered.price > 0.0
-    })
+    const handleChangeOption = (event) => {
+        console.log(event.target.value)  
+
+        if(event.target.value == 'alphabetical'){
+            const copyOfProducts =[...products]
+            const orderedPrice = copyOfProducts.sort((a, b) => {
+                return a.name > b.name
+            })
+            setProduct(orderedPrice)   
+        }
+    }
 
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
-    const currentPosts = filteredPrice.slice(indexOfFirstPost, indexOfLastPost)
+    const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     function imgError(image) {
@@ -55,7 +68,14 @@ const SearchedProducts = (props) => {
         <div className="sectionWrapper">
             {
                 products.length > 0 ?
-                    (
+                    (<div>
+                        <section>
+                            <label htmlFor="sorting"></label>
+                            <select name="sorting" id="sorting" onChange={handleChangeOption}>
+                                <option value defaultValue>Sort by</option>
+                                <option value="alphabetical">alphabetical</option>
+                            </select>
+                        </section>
                         <ul className="productSection">
                             {
                                 currentPosts.map(product => {
@@ -76,6 +96,7 @@ const SearchedProducts = (props) => {
                                 })
                             }
                         </ul>
+                    </div>
                     ) :
                     (
                         <div className="error">
