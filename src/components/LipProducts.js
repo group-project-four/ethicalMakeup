@@ -44,7 +44,7 @@ const LipProducts = () => {
 
     return (
         <div>
-            <MainNav />
+            {/* <MainNav /> */}
             <div className="sectionWrapper">
                 <h2>Lip Makeup</h2>
                 <ul className="productSection">

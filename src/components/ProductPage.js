@@ -25,7 +25,7 @@ const ProductPage = () => {
     const { image_link, description, product_link, brand, name, rating } = individualProducts
     return (
         <div>
-            <MainNav />
+            {/* <MainNav /> */}
             <section className="productInfoContainer">
                 <div className="column1">
                     <img

@@ -12,6 +12,8 @@ import FaceProducts from './components/FaceProducts';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 import SearchedProducts from './components/SearchedProducts';
+import MainNav from './components/MainNav';
+import AllProducts from './components/AllProducts';
 
 function App() {
 
@@ -19,6 +21,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header>
+          <MainNav />
           <Link to="/" style={{textDecoration:'none'}}>
             <div className="logoContainer">
               <img src={Logo} alt="Ethical Makeup Logo" className="logo"/>
@@ -33,7 +36,8 @@ function App() {
           <Route path="/catalogue/eyeproducts" element={<EyeProducts />}/>
           <Route path="/catalogue/lipproducts" element={<LipProducts />}/>
           <Route path="/catalogue/faceproducts" element={<FaceProducts />}/>
-          {/* <Route path="/searchedProducts" element={<SearchedProducts/>}/> */}
+          <Route path="/searchedProducts/" element={<AllProducts />}/>
+          <Route path="/searchedProducts/:productName" element={<SearchedProducts/>}/>
         </Routes>
       </div>
       <Footer /> 

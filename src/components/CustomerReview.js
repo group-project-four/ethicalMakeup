@@ -44,20 +44,32 @@ const CustomerReview = (props) => {
         )
     }
 
-    function handleCheckbox(event) {
-        let recommend
-        if (event.target.value === 'yes') {
-            recommend = 'The user does not recommend this product'
-        } else {
-            recommend = 'The user recommends this product'
-        }
-        setRecommendation(recommend)
+    // function handleRadio(event) {
+    //     let recommend
+    //     if (event.target.value === 'yes') {
+    //         recommend = 'The user recommends this product'
 
-    }
+    //     } else  {
+    //         recommend = 'The user does not recommend this product'
+    //     }
+    //     setRecommendation(recommend)
+    //     event.target.value = ''
+    // }
+
+     function handleRadio(event) {
+        
+        const target = event.target;
+        console.log(target)
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
+        // const name = target.name;
+    
+        // this.setState({
+        //   [name]: value
+        // });
+      }
 
     useEffect(() => {
 
-        console.log(props)
         const dbRef = firebase.database().ref(`${props.product}`)
         console.log(dbRef)
         dbRef.on('value', response => {
@@ -97,14 +109,10 @@ const CustomerReview = (props) => {
                             placeholder="Write your review here!"
                             required
                         />
-                        <div className="checkBoxes">
-                            <div>
-                                <label htmlFor="checkbox">Would Repurchase</label>
-                                <input type="checkbox" id="checkboxYes"  value={'yes'} onChange={handleCheckbox} /></div>
-                            <div>
-                                <label htmlFor="checkbox" >Would Not Repurchase</label>
-                                <input type="checkbox" id="checkbox" value={'no'} onChange={handleCheckbox} />
-                            </div>
+                        
+                        <div className="checkBoxes" onChange={handleRadio}>
+                            <label htmlFor="checkbox">Would you repurchase the product?</label>
+                            <input type="checkbox" id="checkbox" value='yes' />                        
                         </div>
                         <label htmlFor="rating" className="visuallyHidden">Rating 1-5</label>
                         <p className="ratingLabel">Your rating:</p>
