@@ -7,6 +7,8 @@ const CustomerReview = (props) => {
     const [reviews, setReviews] = useState([])
     const [recommendation, setRecommendation] = useState('')
     const [input, setInput] = useState('')
+    const [radioOne, setRadioOne] = useState(false)
+    const [radioTwo, setRadioTwo] = useState(false)
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
@@ -31,25 +33,25 @@ const CustomerReview = (props) => {
             {
                 "name": `${name}`,
                 "review": `${input}`,
-                "checkbox": `${recommendation}`
+                "radio": `${recommendation}`
             }
         )
     }
 
-    function handleCheckbox(event) {
+    function handleRadio(event) {
         let recommend
         if (event.target.value === 'yes') {
-            recommend = 'The user does not recommend this product'
-        } else {
             recommend = 'The user recommends this product'
+
+        } else {
+            recommend = 'The user does not recommend this product'
         }
         setRecommendation(recommend)
-
     }
 
     useEffect(() => {
 
-        console.log(props)
+        // console.log(props)
         const dbRef = firebase.database().ref(`${props.product}`)
         console.log(dbRef)
         dbRef.on('value', response => {
@@ -92,11 +94,13 @@ const CustomerReview = (props) => {
                         />
                         <div className="checkBoxes">
                             <div>
+                            
                                 <label htmlFor="checkbox">Would Repurchase</label>
-                                <input type="checkbox" id="checkboxYes"  value={'yes'} onChange={handleCheckbox} /></div>
+                                <input type="radio" id="radio" name='one' value={'yes', radioOne} onChange={handleRadio}  />
+                            </div>
                             <div>
-                                <label htmlFor="checkbox" >Would Not Repurchase</label>
-                                <input type="checkbox" id="checkbox" value={'no'} onChange={handleCheckbox} />
+                                <label htmlFor="radio" >Would Not Repurchase</label>
+                                <input type="radio" id="radio" name='two' value={'no', radioTwo} onChange={handleRadio} />
                             </div>
                         </div>
 

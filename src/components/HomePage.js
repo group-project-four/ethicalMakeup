@@ -24,7 +24,7 @@ const HomePage = () => {
      */
     return (
         <main>
-            <MainNav />
+            {/* <MainNav /> */}
             <section className="header">
                 <h1>Value Proposition</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
