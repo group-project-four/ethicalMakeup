@@ -37,13 +37,13 @@ const CustomerReview = (props) => {
     }
 
     function handleCheckbox(event) {
-
+        let recommend
         if (event.target.value === 'yes') {
-            recommendation = 'The user does not recommend this product'
+            recommend = 'The user does not recommend this product'
         } else {
-            recommendation = 'The user recommends this product'
+            recommend = 'The user recommends this product'
         }
-        setRecommendation(recommendation)
+        setRecommendation(recommend)
 
     }
 

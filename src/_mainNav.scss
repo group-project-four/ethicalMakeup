@@ -19,13 +19,14 @@ h1{
         top: 70px;
         width: 15%;
         input{
-            border-radius: 20%;
+            border-radius: 20px;
             position: absolute;
             left:0;
             transition: width 1s ease;
             cursor: pointer;
             width: 60px;
             height: 40px;
+            width: 100px;
             border: none;
         }
         svg{

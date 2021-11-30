@@ -78,18 +78,17 @@ const MainNav = () => {
                             </li>
                         </ul>
                     </nav>
-
                     <form onSubmit={handleFormSubmit} className="right">
                         <label htmlFor="searchTab"></label>
                         <div>
                             <BsSearch onMouseOver={handleSearchTag} />
-                            <input
-                                type="text"
-                                id="searchTab"
-                                value={inputSearch}
-                                onChange={handleChange}
-                                onMouseOver={handleSearchBar}
-                            />
+                                <input
+                                    type="text"
+                                    id="searchTab"
+                                    value={inputSearch}
+                                    onChange={handleChange}
+                                    onMouseOver={handleSearchBar}
+                                />
                         </div>
                     </form>
                 </div>

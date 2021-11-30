@@ -11,6 +11,7 @@ import LipProducts from './components/LipProducts';
 import FaceProducts from './components/FaceProducts';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
+import SearchedProducts from './components/SearchedProducts';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/catalogue/eyeproducts" element={<EyeProducts />}/>
           <Route path="/catalogue/lipproducts" element={<LipProducts />}/>
           <Route path="/catalogue/faceproducts" element={<FaceProducts />}/>
+          {/* <Route path="/searchedProducts" element={<SearchedProducts/>}/> */}
         </Routes>
       </div>
       <Footer /> 
