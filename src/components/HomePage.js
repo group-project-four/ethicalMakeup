@@ -3,6 +3,11 @@ import { useEffect} from "react"
 import {useState} from 'react'
 import axios from 'axios'
 import Notable from './Notable'
+import topLeft from '../images/skincare-and-makeup-masterclass-16103245.jpg';
+import topRight from '../images/skincare-and-makeup-masterclass-16103432.jpg';
+import bottomRight from '../images/tp-best-natural-makeup-looks-1.jpg';
+import bottomLeft from '../images/Danessa-1-1551x1000.jpg';
+import makeup2 from '../images/pesce-huang-CNMMvIQJS2Y-unsplash.jpg';
 
 const HomePage = () => {
     const [temp,setTemp] = useState([])
@@ -28,30 +33,32 @@ const HomePage = () => {
             <section className="header">
                 <h1>Value Proposition</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
-                <button>Start free trial</button>
+                <button>Discover More</button>
             </section>
             
             <section className="products">
+            <h2>Trusted by makeup enthusiasts everywhere</h2>
                 <Notable array={temp} /> 
             </section>
             <section className="feature">
                 <div className="featureContentContainer">
-                    <div>
-                        <h2>Your best Value Propositon</h2>
-                        <p>"If you don't try this app, you won't become the superhero you were meant to be"</p>
+                    <div className="containerHeader">
+                        <h2>Eyes. Face. Lip. Color.</h2>
+                        <p>Show us how you make it work</p>
                     </div>
-                    <div>
-                        <img src="" alt="" />
-                        <img src="" alt="" />
-                    </div>
-                    <div>
-                        <div>
-                            <img src="" alt="" />
-                            <img src="" alt="" />
-                        </div>
-                        <div>
-                            <img src="" alt="" />
-                        </div>
+                    <div class="featureContentImages">
+                        <figure class="bottom-right">
+                            <img src={bottomRight} alt="" />
+                        </figure>
+                        <figure class="top-right">
+                            <img src={topRight} alt="" />
+                        </figure>
+                        <figure class="top-left">
+                            <img src={topLeft} alt="" />
+                        </figure>
+                        <figure class="bottom-left">
+                            <img src={bottomLeft} alt="" />
+                        </figure>
                     </div>
                 </div>
             </section>
