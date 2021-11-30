@@ -41,9 +41,9 @@ const ProductPage = () => {
                 </div>
             </section>
             <section className="productReviewContainer">
-                <CustomerReview />
+                <CustomerReview product={productID.productID} />
             </section>
-            
+
         </div>
     )
 }
