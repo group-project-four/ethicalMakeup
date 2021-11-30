@@ -9,6 +9,7 @@ const CustomerReview = (props) => {
     const [input, setInput] = useState('')
     const [rating, setRating] =  useState(0)
     const [ratingIcon, setRatingIcon] = useState('')
+    const [checkbox, setCheckbox] = useState(false)
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
@@ -44,29 +45,14 @@ const CustomerReview = (props) => {
         )
     }
 
-    // function handleRadio(event) {
-    //     let recommend
-    //     if (event.target.value === 'yes') {
-    //         recommend = 'The user recommends this product'
-
-    //     } else  {
-    //         recommend = 'The user does not recommend this product'
-    //     }
-    //     setRecommendation(recommend)
-    //     event.target.value = ''
-    // }
-
-     function handleRadio(event) {
-        
-        const target = event.target;
-        console.log(target)
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
-        // const name = target.name;
-    
-        // this.setState({
-        //   [name]: value
-        // });
-      }
+    const handleCheckbox = (event) => {
+        if (event.target.checked) {
+            setCheckbox(!checkbox)
+            setRecommendation("I recommend this product")
+        } else {
+            setRecommendation("I do not recommend this product")
+        }
+    }
 
     useEffect(() => {
 
@@ -110,9 +96,9 @@ const CustomerReview = (props) => {
                             required
                         />
                         
-                        <div className="checkBoxes" onChange={handleRadio}>
+                        <div className="checkBoxes">
                             <label htmlFor="checkbox">Would you repurchase the product?</label>
-                            <input type="checkbox" id="checkbox" value='yes' />                        
+                            <input type="checkbox" id="checkbox" value={checkbox} onChange={handleCheckbox} />                        
                         </div>
                         <label htmlFor="rating" className="visuallyHidden">Rating 1-5</label>
                         <p className="ratingLabel">Your rating:</p>
