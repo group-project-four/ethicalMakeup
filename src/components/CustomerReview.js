@@ -1,55 +1,103 @@
-// import firebase from './firebase'
-import firebase from '../firebase'
-import { useState } from 'react'
 
-const CustomerReview = () => {
-    const [inputSearch, setInputSearch] = useState('')
-    const [inputReviews, setInputReview] = useState([])
+import firebase from '../firebase'
+import { useEffect, useState } from 'react'
+
+const CustomerReview = (props) => {
+    const [name, setName] = useState('')
+    const [reviews, setReviews] = useState([])
+    const [input, setInput] = useState('')
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        const dbRef = firebase.database().ref()
-        dbRef.push(inputSearch)
-        console.log("hello");
-        // setInputSearch = ("");
-        dbRef.on('value', (response) => {
-            const newState = []
-            const data = response.val()
-    
-            for (let object in data) {
-                newState.push(data[object])
+        addToDatabase(props)
+        
+    }
+
+    const handleInputChange = (event) => {
+        event.preventDefault()
+        setName(event.target.value)
+    }
+
+    const handleTextAreaChange = (event) => {
+        event.preventDefault()
+        setInput(event.target.value)
+    }
+
+    function addToDatabase(props) {
+        const dbRef = firebase.database().ref(`${props.product}`)
+        dbRef.push(
+            { 
+                "name": `${name}`,
+                "review": `${input}`
             }
-            setInputReview(newState)
-    
+        )
+    }
+
+    useEffect(() => {
+        
+        console.log(props)
+        const dbRef = firebase.database().ref(`${props.product}`)
+        console.log(dbRef)
+        dbRef.on('value',response => {
+            const data = response.val()
+            let newArray = []
+            for (let key in data) {
+                console.log(data[key])
+                newArray.push(data[key])
+            }
+            setReviews(newArray)
         })
-    }
-    const handleChange = (event) => {
-        // event.preventDefault()
-        setInputSearch(event.target.value);
-    }
-    
+    },[])
+
     return (
         <div>
-            <form onSubmit={handleFormSubmit}>
-                    <label htmlFor="review">Feel free to share your thoughts...</label>
-                    <input
-                        type="text"
-                        id="review"
-                        value={inputSearch}
-                        onChange={handleChange}
-                    />
-            </form>
-            <ul>
-                {
-                    inputReviews.map((inputReview) => {
-                        return(
-                            <li>
-                               {inputReview}
-                            </li>
-                        )
-                    })
-                }
-            </ul>
+            <div className="formContainer">
+                <h3>Write a Review!</h3>
+                <div className="form">
+                    <form onSubmit={handleFormSubmit}>
+                        <label htmlFor="name" className="visuallyHidden">Your Name:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                className="name"
+                                value={name}
+                                size={15}
+                                onChange={handleInputChange}
+                                placeholder="Your name"
+                            />
+                        
+                        <label htmlFor="review" className="visuallyHidden">Your Review:</label>
+                            <textarea
+                                value={input}
+                                onChange={handleTextAreaChange} 
+                                id="review"
+                                className="review"
+                                placeholder="Write your review here!"
+                            />
+                        
+                        
+                        <input type="submit" value="Submit" className="submitButton"/>
+                    </form>
+                </div>
+            </div>
+
+            {
+                reviews.length > 0 ? 
+                <ul className="reviewsSection">
+                    {
+                        reviews.map((review,index) => {
+                            console.log(review.review)
+                            return(
+                                <li key={index}>
+                                    <h3>{review.name}</h3>
+                                    <p>{review.review}</p>
+                                </li>
+                            )
+                        })
+                    }
+                </ul> :
+                null
+            }
             
         </div>
     )
