@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlineSearch } from "react-icons/ai"
 
@@ -41,14 +41,20 @@ const MainNav = () => {
     const filteredPrice = products.filter((productFiltered) => {
         return productFiltered.price > 0.0
     })
-    
+
     const handleChange = (event) => {
         setInputSearch(event.target.value)
     }
 
-    // const handleSearchBar = () => {
-    //     style= {{width: '50px'}}
-    // }
+    const handleSearchTag = (event) => {
+        event.target.style.display = 'none'
+    }
+
+    const handleSearchBar = (event) => {
+        console.log('hello')
+        event.target.style.width = '200px'
+        event.target.style.display = 'block'
+    }
 
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
@@ -75,19 +81,20 @@ const MainNav = () => {
 
                     <form onSubmit={handleFormSubmit} className="right">
                         <label htmlFor="searchTab"></label>
-                        {/* <div onMouseOver={handleSearchBar}>
-                            <AiOutlineSearch />
-                        </div> */}
-                        <input
-                            type="text"
-                            id="searchTab"
-                            value={inputSearch}
-                            onChange={handleChange}
-                        />
+                        <div>
+                            <AiOutlineSearch onMouseOver={handleSearchTag}/>
+                            <input
+                                type="text"
+                                id="searchTab"
+                                value={inputSearch}
+                                onChange={handleChange}
+                                onMouseOver={handleSearchBar}
+                            />
+                        </div>
                     </form>
                 </div>
                 {errorMessage}
-                <SearchedProducts currentPosts={currentPosts}/>
+                <SearchedProducts currentPosts={currentPosts} />
                 <Posts products={currentPosts} loading={loading} />
                 <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />
             </ul>
