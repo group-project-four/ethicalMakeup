@@ -9,13 +9,29 @@ const CustomerReview = (props) => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        addToDatabase(props)
+        if (isBothInputs) {
+            addToDatabase(props)
+            setName('')
+            setInput('')
+        } else {
+            alert("both fields mandarory")
+        }
+
         
+    }
+
+    const isBothInputs = () => {
+        if (name !== '' && input != '') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     const handleInputChange = (event) => {
         event.preventDefault()
         setName(event.target.value)
+
     }
 
     const handleTextAreaChange = (event) => {
