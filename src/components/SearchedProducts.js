@@ -21,7 +21,7 @@ const SearchedProducts = (props) => {
                                 </Link>
                                 <h3>{product.name}</h3>
                                 <p>$ {product.price}</p>
-                                
+                                <button>More Info</button>
                             </div>
                         )
                     })
