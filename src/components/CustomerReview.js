@@ -28,20 +28,6 @@ const CustomerReview = (props) => {
     }
 
     const handleRatingChange = (event) => {
-        // let ratingIcon
-        // if (event.target.value === 1) {
-        //     ratingIcon = '✰'
-        // } else if (event.target.value === 2) {
-        //     ratingIcon = '✰✰'
-        // } else if (event.target.value === 3) {
-        //     ratingIcon = '✰✰✰'
-        // } else if (event.target.value === 4) {
-        //     ratingIcon = '✰✰✰✰'
-        // } else if (event.target.value === 5) {
-        //     ratingIcon = '✰✰✰✰✰'
-        // } else {
-        //     ratingIcon = ''
-        // }
         setRating(event.target.value)
         
     }
@@ -78,7 +64,6 @@ const CustomerReview = (props) => {
             const data = response.val()
             let newArray = []
             for (let key in data) {
-                // console.log(data[key])
                 newArray.push(data[key])
             }
             setReviews(newArray)
@@ -121,8 +106,14 @@ const CustomerReview = (props) => {
                                 <input type="checkbox" id="checkbox" value={'no'} onChange={handleCheckbox} />
                             </div>
                         </div>
-                        <input type="range" id="rating" name="rating"
+                        <label htmlFor="rating" className="visuallyHidden">Rating 1-5</label>
+                        <p className="ratingLabel">Your rating:</p>
+                        <div className="sliderContainer">
+                            <input type="range" id="rating" className="ratingSlider" name="rating"
                             min="1" max="5" step="1" defaultValue={rating} onChange={handleRatingChange}/>
+                            <output className="output">{rating}</output>
+                        </div>
+                        
 
                         <input type="submit" value="Post" className="submitButton" />
                     </form>
@@ -135,11 +126,10 @@ const CustomerReview = (props) => {
                         <h2>Product Reviews:</h2>
                         {
                             reviews.map((review, index) => {
-                                // console.log(review.review)
                                 return (
                                     <li key={index} className="singleReview">
                                         <h3>{review.name}</h3>
-                                        <p>{review.rating}</p>
+                                        <p>{review.rating} / 5</p>
                                         <p>{review.review}</p>
                                         <p>{review.checkbox}</p>
                                     </li>
