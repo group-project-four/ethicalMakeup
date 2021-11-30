@@ -31,7 +31,7 @@ const CustomerReview = (props) => {
             {
                 "name": `${name}`,
                 "review": `${input}`,
-                "checkbox": `${Recommendation}`
+                "checkbox": `${recommendation}`
             }
         )
     }
@@ -43,7 +43,7 @@ const CustomerReview = (props) => {
         } else {
             recommendation = 'The user recommends this product'
         }
-        setRecommendation(recommended)
+        setRecommendation(recommendation)
 
     }
 
