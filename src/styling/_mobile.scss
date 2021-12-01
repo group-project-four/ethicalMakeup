@@ -3,10 +3,6 @@
     h1{
         font-size: 3rem;
     }
-    
-    h2{
-        font-size: 2rem;
-    }
 
     h3{
         font-size: 1.2rem;
@@ -21,23 +17,25 @@
 
     .topBar{
         .left{
-            top: 60px;
+            top: 50px;
+            ul{
+                margin-right: 5px;
+            }
             li {
-            font-size: 0.9rem;
             padding-right: 15px;
                 a{
-                font-size: 0.9rem;
+                font-size: 0.7rem;
                 }
             }
         }
         .right{
-            top: 55px;
+            top: 50px;
             svg{
                 right: 150px;
                 left: 0;
             }
             input{
-                max-height: 30px;
+                max-height: 20px;
                 max-width: 130px;
             }
         }   
@@ -45,7 +43,7 @@
 
     //searchedProducts
     .productSection {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 
     //footer
@@ -53,8 +51,8 @@
         .topSection li a{
             font-size: 0.9rem;
         }
-        p a{
-            font-size: 0.8rem;
+        p{
+            text-align: center;
         }
 
     }

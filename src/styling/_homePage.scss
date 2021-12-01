@@ -72,31 +72,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-<<<<<<< HEAD
-    align-content: space-between;
-    background-color: #F2E9E4;
-    border-radius: 10px;
-    padding: 1rem;
-    flex-basis: auto;
-}
-
-.productItems a {
-    flex-basis: auto;
-}
-
-.productItems h3, p {
-    text-align: center;
-}
-
-.header button {
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    padding: 10px 60px;
-    border-radius: 5px;
-    margin: 10px 0px;
-    cursor: pointer;
-=======
     justify-content: space-between;
     padding: 1.5rem;
     border-radius: 2%;
@@ -128,7 +103,6 @@
             margin-top: 0;
         }
     }
->>>>>>> 7f937d2ed0095a381bb6458bf9e2ac69bb124142
 }
 
 .feature {

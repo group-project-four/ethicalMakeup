@@ -45,7 +45,7 @@ const MainNav = () => {
                     <form onSubmit={handleFormSubmit} className="right">
                         <label htmlFor="searchTab"></label>
                         <div>
-                            <BsSearch onMouseOver={handleSearchTag} />
+                            <BsSearch onClick={handleSearchTag} />
                                 <input
                                     type="text"
                                     id="searchTab"
