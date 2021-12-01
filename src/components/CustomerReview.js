@@ -64,9 +64,9 @@ const CustomerReview = (props) => {
             }
             setReviews(newArray)
         })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     return (
         <div>
             <div className="formContainer">
