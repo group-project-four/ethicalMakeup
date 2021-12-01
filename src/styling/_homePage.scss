@@ -1,5 +1,6 @@
 .headerContainer {
     height: 80vh;
+    position:relative;
 }
 .header {
     height: 100%;
@@ -39,10 +40,10 @@
 .overlay2 {
     background: rgba(0, 0, 0, 0.7);
     position: absolute;
-    height: 80vh;
+    height: 100%;
     width: 100%;
     left: 0;
-    top: 29.8vh;
+    top: 0;
     bottom: 0;
     right: 0;
     opacity: 0.23;
