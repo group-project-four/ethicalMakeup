@@ -94,7 +94,7 @@ const CustomerReview = (props) => {
                         />
                         <div className="checkBoxes">
                             <label htmlFor="checkbox">Would you repurchase the product?</label>
-                            <input type="checkbox" id="checkbox" value={checkbox} onChange={handleCheckbox} />                        
+                            <input type="checkbox" id="checkbox" className="checkbox" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="checkbox" value={checkbox} onChange={handleCheckbox} />                        
                         </div>
                         <label htmlFor="rating" className="visuallyHidden">Rating 1-5</label>
                         <p className="ratingLabel">Your rating:</p>
