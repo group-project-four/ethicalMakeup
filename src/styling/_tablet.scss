@@ -1,5 +1,32 @@
 @media (max-width: 940px){
+    //mainNav component
     .topBar{
-        overflow: hidden;
+        .left{
+            width: 40%;
+        }
+        .right{
+            right: 70px;
+            input{
+                align-self: flex-start;
+                max-width: 140px;
+            }
+            svg{
+                font-size: 20px;
+                right: 150px;
+                left: 0;
+            }
+        }
+    }
+
+    //homePage
+
+    //searchedProducts
+    .productSection {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    //footer
+    .topSection li{
+        font-size: 1rem;
     }
 }

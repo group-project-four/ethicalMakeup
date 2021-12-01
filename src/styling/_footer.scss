@@ -37,7 +37,8 @@ footer{
                 padding: 20px;
                 color: black;
             }
-            .icon:hover {
+            .icon:hover,
+            .icon:focus {
                 color: #9A8C98;
             }
         }

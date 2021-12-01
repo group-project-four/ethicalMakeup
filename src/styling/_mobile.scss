@@ -1,0 +1,61 @@
+@media(max-width: 480px){
+
+    h1{
+        font-size: 3rem;
+    }
+    
+    h2{
+        font-size: 2rem;
+    }
+
+    h3{
+        font-size: 1.2rem;
+    }
+
+    p, 
+    a,
+    button{
+        font-size: 0.8rem;
+        letter-spacing: 0.08rem;
+    }
+
+    .topBar{
+        .left{
+            top: 60px;
+            li {
+            font-size: 0.9rem;
+            padding-right: 15px;
+                a{
+                font-size: 0.9rem;
+                }
+            }
+        }
+        .right{
+            top: 55px;
+            svg{
+                right: 150px;
+                left: 0;
+            }
+            input{
+                max-height: 30px;
+                max-width: 130px;
+            }
+        }   
+    }
+
+    //searchedProducts
+    .productSection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    //footer
+    footer{
+        .topSection li a{
+            font-size: 0.9rem;
+        }
+        p a{
+            font-size: 0.8rem;
+        }
+
+    }
+}

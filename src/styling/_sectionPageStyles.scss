@@ -41,7 +41,8 @@
     }
 }
 
-.productCard:hover {
+.productCard:hover,
+.productCard:focus {
     background-color:#9A8C98 ;
     h3{
         color: #f8f2ef;
@@ -57,7 +58,8 @@
     }
 }
 
-.productCard:hover {
+.productCard:hover,
+.productCard:focus {
     background-color:#9A8C98 ;
     h3{
         color: #f8f2ef;

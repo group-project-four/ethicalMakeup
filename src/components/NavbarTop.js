@@ -1,5 +1,5 @@
 
-import { Routes, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 const NavbarTop = (props) => {
@@ -19,7 +19,7 @@ const NavbarTop = (props) => {
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><a href="#">About us</a></li>
+                    <li><a href="#aboutUs">About us</a></li>
                     <li><Link to="catalogue">Catalogue</Link></li>
                 </ul>
             </nav>

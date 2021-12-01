@@ -26,9 +26,9 @@ const HomePage = () => {
     /**
      * goal is to get 6 products that are using the vegan tag and display it to the page
      */
+
     return (
         <main>
-            {/* <MainNav /> */}
             <section className="header">
                 <h1>Value Proposition</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
@@ -61,7 +61,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
-            <section className="philosophy">
+            <section className="philosophy" id='aboutUs'>
                 <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dolor quod totam eius ea asperiores. In, iure. Nisi possimus, tempora vero culpa provident nulla similique eos fugiat, doloribus veniam illo.</h2>
             </section>
             <section className="ready">

@@ -112,7 +112,8 @@ output {
   width: 100%;
 }
 
-.submitButton:hover {
+.submitButton:hover,
+.submitButton:focus {
   color: #f8f2ef;
   background-color: #9a8c98;
   border: white 1px solid;

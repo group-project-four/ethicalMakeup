@@ -8,6 +8,7 @@ const ProductPage = () => {
     const [individualProducts, setIndividualProduct] = useState({})
     const productID = useParams()
 
+    //The useEffext is used to call the api and pass in the product.Id of each individial product, this only happens when the product.id exists
     useEffect(() => {
         axios({
             url: `http://makeup-api.herokuapp.com/api/v1/products/${productID.productID}.json`,
@@ -20,11 +21,12 @@ const ProductPage = () => {
         })
     }, [productID.productID])
 
+    //destructuring information in the api in order to avoid repetition
     const { image_link, description, product_link, brand, name, rating } = individualProducts
 
     return (
         <div>
-            {/* <MainNav /> */}
+            {/* information about each individual product is displayed  */}
             <section className="productInfoContainer">
                 <div className="column1">
                     <img

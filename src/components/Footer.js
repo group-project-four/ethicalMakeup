@@ -1,3 +1,4 @@
+//importing icons from the react icon library
 import { SiLinkedin } from "react-icons/si"
 import { SiTwitter } from "react-icons/si"
 import { SiInstagram } from "react-icons/si"
@@ -16,7 +17,7 @@ const Footer = () => {
                     <img src={Logo} alt="Ethical Makeup Logo" className="footerLogo" />
                 </div>
                 <ul>
-                    <li><Link to="/">Contact us</Link></li>
+                    <li><Link to="/">Contact</Link></li>
                     <li><Link to="/catalogue">Catalogue</Link></li>
                 </ul>
             </div>
