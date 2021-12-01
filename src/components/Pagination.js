@@ -10,7 +10,7 @@ function Pagination({postsPerPage, totalPosts, paginate}) {
         <nav className="pageNumebrs">
             {pageNumbers.map(number => 
                 <li key={number}>
-                    <a onClick={() => paginate(number)} href="#">
+                    <a onClick={() => paginate(number)} href="/#">
                         {number}
                     </a>
                 </li>
