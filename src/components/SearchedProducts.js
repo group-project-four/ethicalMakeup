@@ -12,8 +12,6 @@ const SearchedProducts = (props) => {
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
-    const [orderedPost, setOrderedPost] = useState([])
-
     const { productName } = useParams()
 
     useEffect(() => {
@@ -64,6 +62,7 @@ const SearchedProducts = (props) => {
         image.target.src =
             "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";
     }
+
     return (
         <div className="sectionWrapper">
             {
@@ -104,11 +103,10 @@ const SearchedProducts = (props) => {
                         </div>
                     )
             }
-
             <Posts products={currentPosts} loading={loading} />
             <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />
         </div>
     )
-
 }
+
 export default SearchedProducts

@@ -8,7 +8,6 @@ const CustomerReview = (props) => {
     const [recommendation, setRecommendation] = useState('')
     const [input, setInput] = useState('')
     const [rating, setRating] =  useState(0)
-    const [ratingIcon, setRatingIcon] = useState('')
     const [checkbox, setCheckbox] = useState(false)
 
     const handleFormSubmit = (event) => {
@@ -21,7 +20,6 @@ const CustomerReview = (props) => {
     const handleInputChange = (event) => {
         event.preventDefault()
         setName(event.target.value)
-
     }
 
     const handleTextAreaChange = (event) => {
@@ -30,7 +28,6 @@ const CustomerReview = (props) => {
 
     const handleRatingChange = (event) => {
         setRating(event.target.value)
-        
     }
 
     function addToDatabase(props) {
@@ -47,15 +44,17 @@ const CustomerReview = (props) => {
 
     const handleCheckbox = (event) => {
         if (event.target.checked) {
+            // updating checkbox visual
             setCheckbox(!checkbox)
+            // setting the right value for database
             setRecommendation("I recommend this product")
         } else {
+            // setting the right value for database
             setRecommendation("I do not recommend this product")
         }
     }
 
     useEffect(() => {
-
         const dbRef = firebase.database().ref(`${props.product}`)
         console.log(dbRef)
         dbRef.on('value', response => {
@@ -85,7 +84,6 @@ const CustomerReview = (props) => {
                             placeholder="Your name"
                             required
                         />
-
                         <label htmlFor="review" className="visuallyHidden">Your Review:</label>
                         <textarea
                             value={input}
@@ -95,7 +93,6 @@ const CustomerReview = (props) => {
                             placeholder="Write your review here!"
                             required
                         />
-                        
                         <div className="checkBoxes">
                             <label htmlFor="checkbox">Would you repurchase the product?</label>
                             <input type="checkbox" id="checkbox" value={checkbox} onChange={handleCheckbox} />                        
@@ -104,11 +101,9 @@ const CustomerReview = (props) => {
                         <p className="ratingLabel">Your rating:</p>
                         <div className="sliderContainer">
                             <input type="range" id="rating" className="ratingSlider" name="rating"
-                            min="1" max="5" step="1" defaultValue={rating} onChange={handleRatingChange}/>
+                            min="0" max="5" step="1" defaultValue={rating} onChange={handleRatingChange}/>
                             <output className="output">{rating}</output>
                         </div>
-                        
-
                         <input type="submit" value="Post" className="submitButton" />
                     </form>
                 </div>
@@ -133,7 +128,6 @@ const CustomerReview = (props) => {
                     </ul> :
                     null
             }
-
         </div>
     )
 }

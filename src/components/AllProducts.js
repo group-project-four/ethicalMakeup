@@ -1,12 +1,11 @@
+
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
 import Pagination from './Pagination'
 import Posts from './Posts'
 
 const AllProducts = () => {
-
     const [products, setProduct] = useState([])
     const [errorMessage, setErrorMessage] = useState('')
     const [loading, setLoading] = useState(false)
@@ -73,8 +72,6 @@ const AllProducts = () => {
             <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />
         </div>
     )
-
-
 
 }
 export default AllProducts
