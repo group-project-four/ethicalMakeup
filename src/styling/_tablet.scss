@@ -25,6 +25,19 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
+    // Single Product Page
+    .productInfoContainer {
+         grid-template-columns: 100%;
+    }
+
+    .column2 {
+        padding: 5% 6%;
+    }
+
+    .reviewsSection {
+        padding:0;
+    }
+
     //footer
     .topSection li{
         font-size: 1rem;
@@ -39,4 +52,9 @@
     }
     
     
+}
+
+@media (max-width: 940px) {
+
+     
 }

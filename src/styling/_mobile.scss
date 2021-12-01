@@ -15,7 +15,7 @@
         letter-spacing: 0.08rem;
     }
 
-    // Top Nav
+    // Top Nav Bar
     .topBar{
         .left{
             top: 20px;
@@ -49,21 +49,8 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
-    // Single Product Page
-    .productInfoContainer {
-        grid-template-columns: 100%;
-    }
 
-    .column2 {
-        padding: 5% 6%;
-    }
-
-    .reviewsSection {
-        padding:0;
-    }
-
-
-    //footer
+    //Footer
     footer{
         .topSection li a{
             font-size: 0.9rem;
