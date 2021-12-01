@@ -25,7 +25,10 @@ const AllProducts = () => {
                 product_tags: "vegan"
             }
         }).then((response) => {
-            setProduct(response.data)
+            if (response.data.length !== 0) {
+                setProduct(response.data)
+                setPostsPerPage(16)
+            }
         })
     }
 
@@ -34,8 +37,7 @@ const AllProducts = () => {
         return productFiltered.price > 0.0
     })
 
-    //function defined for when there are broken image links in the api
-    function imgError(image) {
+    const imgError = (image) => {
         image.target.src =
             "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";
     }
@@ -77,4 +79,5 @@ const AllProducts = () => {
     )
 
 }
+
 export default AllProducts

@@ -1,3 +1,4 @@
+
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -40,6 +41,7 @@ const SearchedProducts = (props) => {
                 })                
                 setProduct(filteredData)
                 setErrorMessage('')
+                setPostsPerPage(16)
             } else {
                 setProduct([])
                 setErrorMessage('There were no products found!')
@@ -60,7 +62,7 @@ const SearchedProducts = (props) => {
         }
     }
 
-    //pagination 
+    //pagination: defining index of last and first post and further slicing the array with all the api data and saving it in a constant called currentPosts
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)

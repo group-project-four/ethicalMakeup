@@ -64,6 +64,7 @@ const CustomerReview = (props) => {
             }
             setReviews(newArray)
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

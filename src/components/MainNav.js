@@ -60,4 +60,5 @@ const MainNav = () => {
         </div>
     )
 }
+
 export default MainNav

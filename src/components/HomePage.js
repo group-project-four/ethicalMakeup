@@ -1,11 +1,12 @@
 
 import { useEffect} from "react"
 import {useState} from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Notable from './Notable'
 import topLeft from '../images/skincare-and-makeup-masterclass-16103245.jpg'
-import topRight from '../images/skincare-and-makeup-masterclass-16103432.jpg'
-import bottomRight from '../images/tp-best-natural-makeup-looks-1.jpg'
+import topRight from '../images/tp-best-natural-makeup-looks-1.jpg'
+import bottomRight from '../images/headerImage.jpg'
 import bottomLeft from '../images/Danessa-1-1551x1000.jpg'
 
 const HomePage = () => {
@@ -23,20 +24,21 @@ const HomePage = () => {
         })
     },[])
 
-    /**
-     * goal is to get 6 products that are using the vegan tag and display it to the page
-     */
-
     return (
         <main>
-            <section className="header">
-                <h1>Value Proposition</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
-                <button>Discover More</button>
-            </section>
+            <div className="headerContainer">
+                <section className="header">
+                    <h1>Value Proposition</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
+                    <Link to="catalogue">
+                     <button>Discover More</button>
+                    </Link>
+                </section>
+                <div className="overlay2"></div>
+            </div>
             
             <section className="products">
-            <h2>The best vegan makeup for under $10</h2>
+            <h2>The best vegan makeup for under $5</h2>
                 <Notable array={temp} /> 
             </section>
             <section className="feature">
@@ -46,18 +48,19 @@ const HomePage = () => {
                         <p>Show us how you make it work</p>
                     </div>
                     <div className="featureContentImages">
-                        <figure className="bottom-right">
-                            <img src={bottomRight} alt="" />
-                        </figure>
-                        <figure className="top-right">
-                            <img src={topRight} alt="" />
-                        </figure>
-                        <figure className="top-left">
+                        {/* <figure className="top-left"> */}
                             <img src={topLeft} alt="" />
-                        </figure>
-                        <figure className="bottom-left">
+                        {/* </figure> */}
+                        {/* <figure className="top-right"> */}
+                            <img src={topRight} alt="" />
+                        {/* </figure> */}
+                        {/* <figure className="bottom-right"> */}
+                            <img src={bottomRight} alt="" />
+                        {/* </figure> */}
+                        {/* <figure className="bottom-left"> */}
                             <img src={bottomLeft} alt="" />
-                        </figure>
+                        {/* </figure> */}
+                        
                     </div>
                 </div>
             </section>
