@@ -5,11 +5,15 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const ProductPage = () => {
+    // Setting state to hold the product info to be displayed
     const [individualProducts, setIndividualProduct] = useState({})
+    // Setting productID as the params to use in the URL
     const productID = useParams()
+
 
     useEffect(() => {
         axios({
+            // URL taking the productID params to link the url to the specific product the user clicks
             url: `http://makeup-api.herokuapp.com/api/v1/products/${productID.productID}.json`,
         }).then((response) => {
             setIndividualProduct(response.data)
@@ -20,6 +24,7 @@ const ProductPage = () => {
         })
     }, [productID.productID])
 
+    // Desctructuring the properties needed within the individualProducts state
     const { image_link, description, product_link, brand, name, rating } = individualProducts
 
     return (
@@ -39,6 +44,7 @@ const ProductPage = () => {
                 </div>
             </section>
             <section className="productReviewContainer">
+                {/* Calling the customer review param to show the customer review form & all reviews on each product */}
                 <CustomerReview product={productID.productID}/>
             </section>
 
