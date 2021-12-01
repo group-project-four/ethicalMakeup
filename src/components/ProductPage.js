@@ -18,7 +18,7 @@ const ProductPage = () => {
                 console.log(error.response)
             }
         })
-    }, [])
+    }, [productID.productID])
 
     const { image_link, description, product_link, brand, name, rating } = individualProducts
 

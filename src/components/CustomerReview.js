@@ -56,7 +56,6 @@ const CustomerReview = (props) => {
 
     useEffect(() => {
         const dbRef = firebase.database().ref(`${props.product}`)
-        console.log(dbRef)
         dbRef.on('value', response => {
             const data = response.val()
             let newArray = []
