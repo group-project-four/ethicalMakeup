@@ -1,13 +1,12 @@
-import MainNav from "./MainNav"
+
 import { useEffect} from "react"
 import {useState} from 'react'
 import axios from 'axios'
 import Notable from './Notable'
-import topLeft from '../images/skincare-and-makeup-masterclass-16103245.jpg';
-import topRight from '../images/skincare-and-makeup-masterclass-16103432.jpg';
-import bottomRight from '../images/tp-best-natural-makeup-looks-1.jpg';
-import bottomLeft from '../images/Danessa-1-1551x1000.jpg';
-import makeup2 from '../images/pesce-huang-CNMMvIQJS2Y-unsplash.jpg';
+import topLeft from '../images/skincare-and-makeup-masterclass-16103245.jpg'
+import topRight from '../images/skincare-and-makeup-masterclass-16103432.jpg'
+import bottomRight from '../images/tp-best-natural-makeup-looks-1.jpg'
+import bottomLeft from '../images/Danessa-1-1551x1000.jpg'
 
 const HomePage = () => {
     const [temp,setTemp] = useState([])
@@ -29,7 +28,7 @@ const HomePage = () => {
      */
     return (
         <main>
-            <MainNav />
+            {/* <MainNav /> */}
             <section className="header">
                 <h1>Value Proposition</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
@@ -37,7 +36,7 @@ const HomePage = () => {
             </section>
             
             <section className="products">
-            <h2>Trusted by makeup enthusiasts everywhere</h2>
+            <h2>The best vegan makeup for under $10</h2>
                 <Notable array={temp} /> 
             </section>
             <section className="feature">
@@ -46,17 +45,17 @@ const HomePage = () => {
                         <h2>Eyes. Face. Lip. Color.</h2>
                         <p>Show us how you make it work</p>
                     </div>
-                    <div class="featureContentImages">
-                        <figure class="bottom-right">
+                    <div className="featureContentImages">
+                        <figure className="bottom-right">
                             <img src={bottomRight} alt="" />
                         </figure>
-                        <figure class="top-right">
+                        <figure className="top-right">
                             <img src={topRight} alt="" />
                         </figure>
-                        <figure class="top-left">
+                        <figure className="top-left">
                             <img src={topLeft} alt="" />
                         </figure>
-                        <figure class="bottom-left">
+                        <figure className="bottom-left">
                             <img src={bottomLeft} alt="" />
                         </figure>
                     </div>
@@ -72,8 +71,6 @@ const HomePage = () => {
             </section>
         </main>
     )
-
-
 }
 
 export default HomePage

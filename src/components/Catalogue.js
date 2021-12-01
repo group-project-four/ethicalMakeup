@@ -1,12 +1,10 @@
+
 import { Link } from 'react-router-dom'
 // import {Routes, Route } from 'react-router-dom'
-import MainNav from './MainNav';
 
 const Catalogue = () => {
-
     return (
         <main>
-            <MainNav />
             <Link to="eyeproducts">
                 <div className="imgContainer">
                     <section className="eyeMakeupSection img">
@@ -16,7 +14,6 @@ const Catalogue = () => {
                 </div>
 
             </Link>
-
             <Link to="lipproducts">
                 <div className="imgContainer">
                     <section className="lipMakeupSection">
@@ -25,7 +22,6 @@ const Catalogue = () => {
                     <div className="overlay"></div>
                 </div>
             </Link>
-
             <Link to="faceproducts">
                 <div className="imgContainer">
                 <section className="faceMakeupSection">
@@ -34,7 +30,6 @@ const Catalogue = () => {
                 <div className="overlay"></div>
                 </div>
             </Link>
-
         </main>
     );
 };

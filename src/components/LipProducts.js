@@ -1,8 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom'
 
-import MainNav from "./MainNav";
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { Link } from 'react-router-dom'
 
 const LipProducts = () => {
     // Set all products from API to state
@@ -18,24 +17,23 @@ const LipProducts = () => {
         }).then((response) => {
             setProduct(response.data);
             // console.log(response.data);
-        });
-    }, []);
+        })
+    }, [])
 
     // Filter Products array for Lipstick & lip liner:
     const lipProducts = products.filter(
         (products) =>
             products.product_type === "lipstick" ||
             products.product_type === "lip_liner"
-    );
+    )
 
     // Filter array for products that don't have a price:
     const lipProductAdj = lipProducts.filter(
         (products) =>
             products.price !== "0.0" &&
             products.price !== null 
-    );
+    )
    
-
     // Error handling for images that are broken
     function imgError(image) {
         image.target.src =
@@ -44,7 +42,7 @@ const LipProducts = () => {
 
     return (
         <div>
-            <MainNav />
+            {/* <MainNav /> */}
             <div className="sectionWrapper">
                 <h2>Lip Makeup</h2>
                 <ul className="productSection">

@@ -1,9 +1,8 @@
+
 import { Routes, Route, Link } from 'react-router-dom'
 import { useState } from 'react'
 
-
 const NavbarTop = (props) => {
-
     const [inputSearch, setInputSearch] = useState('')
 
     const handleFormSubmit = (event) => {
@@ -15,23 +14,15 @@ const NavbarTop = (props) => {
         setInputSearch(event.target.value)
     }
 
-
     return (
         <div>
             <nav>
                 <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <a href="#">About us</a>
-                    </li>
-                    <li>
-                        <Link to="catalogue">Catalogue</Link>
-                    </li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><a href="#">About us</a></li>
+                    <li><Link to="catalogue">Catalogue</Link></li>
                 </ul>
             </nav>
-
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="searchTab"></label>
                 <input
@@ -44,4 +35,5 @@ const NavbarTop = (props) => {
         </div>
     )
 }
+
 export default NavbarTop

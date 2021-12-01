@@ -1,11 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+
+import axios from "axios"
+import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
-import MainNav from "./MainNav";
+import MainNav from "./MainNav"
 
 const EyeProducts = () => {
     // Set all products from API to state
-    const [products, setProduct] = useState([]);
+    const [products, setProduct] = useState([])
 
     // Call API
     useEffect(() => {
@@ -17,8 +18,8 @@ const EyeProducts = () => {
         }).then((response) => {
             setProduct(response.data);
             console.log(response.data);
-        });
-    }, []);
+        })
+    }, [])
 
     // Filter Products array for Mascara, EyeLiner & Eyeshadow:
     const eyeProducts = products.filter(
@@ -26,7 +27,7 @@ const EyeProducts = () => {
             products.product_type === "mascara" ||
             products.product_type === "eyeliner" ||
             products.product_type === "eyeshadow"
-    );
+    )
 
     // Filter array for products that don't have a price:
     const eyeProductAdj = eyeProducts.filter(
@@ -34,7 +35,7 @@ const EyeProducts = () => {
             products.price !== "0.0" &&
             products.price !== null &&
             products.name !== "Liquid Eye Shadow"
-    );
+    )
 
     // Error handling for images that are broken
     function imgError(image) {
@@ -44,7 +45,7 @@ const EyeProducts = () => {
 
     return (
         <div>
-            <MainNav />
+            {/* <MainNav /> */}
             <div className="sectionWrapper">
                 <h2>Eye Makeup</h2>
                     <ul className="productSection">
