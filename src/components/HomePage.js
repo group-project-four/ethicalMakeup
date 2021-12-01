@@ -31,7 +31,7 @@ const HomePage = () => {
                     <h1>Value Proposition</h1>
                     <p>Sustainable and eco-friendly friendly makeup to achieve sustainable beauty.</p>
                     <Link to="catalogue">
-                     <button>Discover More</button>
+                     <button>Shop</button>
                     </Link>
                 </section>
                 <div className="overlay2"></div>
