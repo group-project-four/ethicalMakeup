@@ -1,13 +1,12 @@
-import MainNav from "./MainNav"
+
 import { useEffect} from "react"
 import {useState} from 'react'
 import axios from 'axios'
 import Notable from './Notable'
-import topLeft from '../images/skincare-and-makeup-masterclass-16103245.jpg';
-import topRight from '../images/skincare-and-makeup-masterclass-16103432.jpg';
-import bottomRight from '../images/tp-best-natural-makeup-looks-1.jpg';
-import bottomLeft from '../images/Danessa-1-1551x1000.jpg';
-import makeup2 from '../images/pesce-huang-CNMMvIQJS2Y-unsplash.jpg';
+import topLeft from '../images/skincare-and-makeup-masterclass-16103245.jpg'
+import topRight from '../images/skincare-and-makeup-masterclass-16103432.jpg'
+import bottomRight from '../images/tp-best-natural-makeup-looks-1.jpg'
+import bottomLeft from '../images/Danessa-1-1551x1000.jpg'
 
 const HomePage = () => {
     const [temp,setTemp] = useState([])
@@ -37,7 +36,7 @@ const HomePage = () => {
             </section>
             
             <section className="products">
-            <h2>Trusted by makeup enthusiasts everywhere</h2>
+            <h2>The best vegan makeup for under $10</h2>
                 <Notable array={temp} /> 
             </section>
             <section className="feature">
@@ -72,8 +71,6 @@ const HomePage = () => {
             </section>
         </main>
     )
-
-
 }
 
 export default HomePage

@@ -1,11 +1,11 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+
+import axios from "axios"
+import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
-import MainNav from "./MainNav";
 
 const FaceProducts = () => {
     // Set all products from API to state
-    const [products, setProduct] = useState([]);
+    const [products, setProduct] = useState([])
 
     // Call API
     useEffect(() => {
@@ -15,10 +15,10 @@ const FaceProducts = () => {
                 product_tags: "vegan"
             }
         }).then((response) => {
-            setProduct(response.data);
-            console.log(response.data);
-        });
-    }, []);
+            setProduct(response.data)
+            console.log(response.data)
+        })
+    }, [])
 
     // Filter Products array for Foundation, bronzer & blush:
     const faceProducts = products.filter(
@@ -26,8 +26,7 @@ const FaceProducts = () => {
             products.product_type === "bronzer" ||
             products.product_type === "foundation" ||
             products.product_type === "blush"
-    );
-
+    )
 
     // Filter array for products that don't have a price:
     const faceProductAdj = faceProducts.filter(
@@ -36,7 +35,7 @@ const FaceProducts = () => {
             products.price !== null &&
             products.name !== "No Filter Foundation" &&
             products.name !== "Serum Foundation"
-    );
+    )
 
     // Error handling for images that are broken
     function imgError(image) {

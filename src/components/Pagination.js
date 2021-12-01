@@ -1,8 +1,11 @@
+
 function Pagination({postsPerPage, totalPosts, paginate}) {
     const pageNumbers =[]
+
     for(let i =1; i <= Math.ceil(totalPosts / postsPerPage); i++){
         pageNumbers.push(i)
     }
+
     return(
         <nav className="pageNumebrs">
             {pageNumbers.map(number => 
@@ -15,4 +18,5 @@ function Pagination({postsPerPage, totalPosts, paginate}) {
         </nav>
     )
 }
+
 export default Pagination

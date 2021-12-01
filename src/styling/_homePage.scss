@@ -27,6 +27,7 @@
 .products {
     background-color: #C9ADA7;
     padding: 5%;
+    max-width: 100%;
 }
 
 .products h2 {
@@ -44,14 +45,40 @@
     display: flex;
     justify-content: center;
     align-content: space-between;
+    align-self: center;
+    align-items: baseline;
+    // min-height: 200px;
+    max-width: 80vw;
     margin: 10%;
     gap: 100px; 
     img {
-        border-radius: 50%;
+        // border-radius: 50px;
         border: 20px solid #F2E9E4;
     }
 }
 
+.productItems {
+    min-height: 500px;
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    align-self: center;
+    background-color: #F2E9E4;
+    border-radius: 10px;
+    padding: 1rem;
+    flex-basis: auto;
+}
+
+.productItems a {
+    flex-basis: auto;
+}
+
+.productItems h3, p {
+    text-align: center;
+}
 
 .header button {
     background-color: black;

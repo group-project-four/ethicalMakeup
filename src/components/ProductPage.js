@@ -1,11 +1,8 @@
+
 import axios from 'axios'
 import CustomerReview from './CustomerReview'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
-import MainNav from './MainNav'
-
-
 
 const ProductPage = () => {
     const [individualProducts, setIndividualProduct] = useState({})
@@ -21,8 +18,10 @@ const ProductPage = () => {
                 console.log(error.response)
             }
         })
-    }, [])
+    }, [productID.productID])
+
     const { image_link, description, product_link, brand, name, rating } = individualProducts
+
     return (
         <div>
             {/* <MainNav /> */}
@@ -47,4 +46,5 @@ const ProductPage = () => {
         </div>
     )
 }
+
 export default ProductPage
