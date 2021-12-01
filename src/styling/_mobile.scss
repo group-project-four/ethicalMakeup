@@ -49,6 +49,46 @@
         }   
     }
 
+
+    //Home Page
+    .products {
+        height: 350vh;
+
+    }
+    .featuredSection {
+        grid-template-columns: 1fr;
+    }
+
+    .productItems {
+        img {
+            width: 70%;
+            margin-left: 9vw;
+        }
+        .textContainer {
+            height: 30vh;
+            width: 100%;
+        }
+    }
+
+    .containerHeader {
+        margin-top: 10vh;
+    }
+
+    .featureContentImages {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .pic1, .pic2, .pic3 {
+        display: none;
+    }
+
+    .philosophy{
+        h2{
+            font-size: 3rem;
+        }
+    }
+
     //searchedProducts
     .productSection {
         grid-template-columns: repeat(1, 1fr);
@@ -59,6 +99,11 @@
     footer{
         .topSection li a{
             font-size: 0.9rem;
+        }
+        .topSection {
+            ul {
+                flex-direction: column;
+            }
         }
         p{
             text-align: center;
@@ -71,6 +116,27 @@
 
     }
 
+}
+
+@media (max-width: 700px) {
+    // Homepage
+    .ready {
+        p{
+            font-size: 2rem;
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    // Homepage
+    .ready {
+        h3{
+            font-size: 3.5rem;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+    }
 }
 
 

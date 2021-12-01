@@ -37,7 +37,7 @@ const HomePage = () => {
                     <h1>Value Proposition</h1>
                     <p>Sustainable and eco-friendly friendly makeup to achieve sustainable beauty.</p>
                     <Link to="catalogue">
-                        <button>Discover More</button>
+                     <button>Shop</button>
                     </Link>
                 </section>
                 <div className="overlay2"></div>
@@ -54,10 +54,10 @@ const HomePage = () => {
                         <p>Show us how you make it work</p>
                     </div>
                     <div className="featureContentImages">
-                        <img src={topLeft} alt="" />
-                        <img src={topRight} alt="" />
-                        <img src={bottomRight} alt="" />
-                        <img src={bottomLeft} alt="" />
+                            <img src={topLeft} alt="two female models posing together" className="pic1" />
+                            <img src={topRight} alt="one female model touching her lip" className="pic2" />
+                            <img src={bottomRight} alt="three models with nice makeup on" className="pic3" />
+                            <img src={bottomLeft} alt="flatlay of pink makeup on pink background" className="pic4" />
                     </div>
                 </div>
             </section>
