@@ -14,6 +14,7 @@ const SearchedProducts = (props) => {
     const [errorMessage, setErrorMessage] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
+    const [errorAPI, setErrorAPI] = useState('')
 
     //deconstructing productName imported from the component MainNav referenced to the user input search 
     const { productName } = useParams()
@@ -46,6 +47,10 @@ const SearchedProducts = (props) => {
                 setProduct([])
                 setErrorMessage('There were no products found!')
             }
+        }).catch((error) => {
+            if (error.response) {
+                setErrorAPI('Sorry our API is unable to get the necessary information!')
+            }
         })
     }
 
@@ -75,6 +80,7 @@ const SearchedProducts = (props) => {
 
     return (
         <div className="sectionWrapper">
+            <div className="ApiError">{errorAPI}</div>
             {
                 products.length > 0 ?
                     (<div>

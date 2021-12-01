@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 const LipProducts = () => {
     // Set all products from API to state
     const [products, setProduct] = useState([])
+    const [errorAPI, setErrorAPI] = useState('')
 
     // Call API
     useEffect(() => {
@@ -16,6 +17,10 @@ const LipProducts = () => {
             }
         }).then((response) => {
             setProduct(response.data);
+        }).catch((error) => {
+            if (error.response) {
+                setErrorAPI('Sorry our API is unable to get the necessary information!')
+            }
         })
     }, [])
 
@@ -30,9 +35,9 @@ const LipProducts = () => {
     const lipProductAdj = lipProducts.filter(
         (products) =>
             products.price !== "0.0" &&
-            products.price !== null 
+            products.price !== null
     )
-   
+
     // Error handling for images that are broken
     function imgError(image) {
         image.target.src =
@@ -42,6 +47,7 @@ const LipProducts = () => {
     return (
         <div>
             <div className="sectionWrapper">
+                <div className="ApiError">{errorAPI}</div>
                 <h2>Lip Makeup</h2>
                 <ul className="productSection">
                     {/* Map through the final filtered array and return each result as an li item */}

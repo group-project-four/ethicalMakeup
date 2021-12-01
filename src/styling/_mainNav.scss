@@ -12,6 +12,9 @@ h1{
         top: 70px;
         width: 25%;
         justify-content: space-around;
+        li:focus{
+            border: red 1px solid;
+        }
     }
     .right{
         position: absolute;
