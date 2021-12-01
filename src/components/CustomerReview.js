@@ -117,7 +117,7 @@ const CustomerReview = (props) => {
                             reviews.map((review, index) => {
                                 return (
                                     <li key={index} className="singleReview">
-                                        <h3>{review.name}</h3>
+                                        <h3>{review.name} says:</h3>
                                         <p>{review.rating} / 5</p>
                                         <p>{review.review}</p>
                                         <p>{review.checkbox}</p>
