@@ -1,3 +1,4 @@
+
 import { SiLinkedin } from "react-icons/si"
 import { SiTwitter } from "react-icons/si"
 import { SiInstagram } from "react-icons/si"
@@ -31,4 +32,5 @@ const Footer = () => {
         </footer>
     )
 }
+
 export default Footer

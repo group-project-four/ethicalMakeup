@@ -24,11 +24,10 @@ const HomePage = () => {
     },[])
 
     /**
-     * goal is to get 6 products that are using the vegan tag and display it to the page
+     * goal is to get products that are using the vegan tag and display it to the page
      */
     return (
         <main>
-            {/* <MainNav /> */}
             <section className="header">
                 <h1>Value Proposition</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
@@ -36,7 +35,7 @@ const HomePage = () => {
             </section>
             
             <section className="products">
-            <h2>The best vegan makeup for under $10</h2>
+            <h2>The best vegan makeup for under $5</h2>
                 <Notable array={temp} /> 
             </section>
             <section className="feature">

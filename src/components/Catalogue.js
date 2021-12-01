@@ -1,6 +1,5 @@
 
 import { Link } from 'react-router-dom'
-// import {Routes, Route } from 'react-router-dom'
 
 const Catalogue = () => {
     return (
@@ -31,8 +30,8 @@ const Catalogue = () => {
                 </div>
             </Link>
         </main>
-    );
-};
+    )
+}
 
 export default Catalogue
 

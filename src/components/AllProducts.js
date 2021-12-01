@@ -24,6 +24,7 @@ const AllProducts = () => {
         }).then((response) => {
             if (response.data.length !== 0) {
                 setProduct(response.data)
+                setPostsPerPage(16)
             }
         })
     }
@@ -32,12 +33,12 @@ const AllProducts = () => {
         return productFiltered.price > 0.0
     })
 
-    function imgError(image) {
+    const imgError = (image) => {
         image.target.src =
             "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";
     }
     
-    setPostsPerPage(16)
+
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const currentPosts = filteredPrice.slice(indexOfFirstPost, indexOfLastPost)
@@ -71,4 +72,5 @@ const AllProducts = () => {
     )
 
 }
+
 export default AllProducts

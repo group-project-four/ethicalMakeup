@@ -24,7 +24,6 @@ const ProductPage = () => {
 
     return (
         <div>
-            {/* <MainNav /> */}
             <section className="productInfoContainer">
                 <div className="column1">
                     <img

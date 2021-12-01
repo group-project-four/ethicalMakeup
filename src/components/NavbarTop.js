@@ -1,5 +1,5 @@
 
-import { Routes, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 const NavbarTop = (props) => {

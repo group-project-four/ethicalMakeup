@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const LipProducts = () => {
     // Set all products from API to state
-    const [products, setProduct] = useState([]);
+    const [products, setProduct] = useState([])
 
     // Call API
     useEffect(() => {
@@ -42,7 +42,6 @@ const LipProducts = () => {
 
     return (
         <div>
-            {/* <MainNav /> */}
             <div className="sectionWrapper">
                 <h2>Lip Makeup</h2>
                 <ul className="productSection">
