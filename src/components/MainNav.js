@@ -3,9 +3,8 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { BsSearch } from "react-icons/bs"
 
-
 const MainNav = () => {
-    let navigate = useNavigate();
+    let navigate = useNavigate()
     const [inputSearch, setInputSearch] = useState('')
 
     const handleFormSubmit = (event) => {
@@ -32,15 +31,9 @@ const MainNav = () => {
                 <div className="topBar">
                     <nav>
                         <ul className="left">
-                            <li>
-                                <Link to="/">Home</Link>
-                            </li>
-                            <li>
-                                <a href="#">About us</a>
-                            </li>
-                            <li>
-                                <Link to="catalogue">Catalogue</Link>
-                            </li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><a href="#">About us</a></li>
+                            <li><Link to="catalogue">Catalogue</Link></li>
                         </ul>
                     </nav>
                     <form onSubmit={handleFormSubmit} className="right">

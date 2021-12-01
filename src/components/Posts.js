@@ -1,7 +1,9 @@
+
 function Post({ products, loading }) {
     if (loading) {
         return <h2>Loading..</h2>
     }
+    
     return (
         <ul>
             {products.map(product =>
