@@ -1,7 +1,7 @@
+
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-
 import Pagination from './Pagination'
 import Posts from './Posts'
 
@@ -32,6 +32,7 @@ const SearchedProducts = (props) => {
                 })                
                 setProduct(filteredData)
                 setErrorMessage('')
+                setPostsPerPage(16)
             } else {
                 setProduct([])
                 setErrorMessage('There were no products found!')
@@ -40,8 +41,6 @@ const SearchedProducts = (props) => {
     }
 
     const handleChangeOption = (event) => {
-        console.log(event.target.value)  
-
         if(event.target.value === 'alphabetical'){
             const copyOfProducts = [...products]
             const orderedPrice = copyOfProducts.sort((a, b) => {
@@ -50,7 +49,7 @@ const SearchedProducts = (props) => {
             setProduct(orderedPrice)   
         }
     }
-    setPostsPerPage(16)
+
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)

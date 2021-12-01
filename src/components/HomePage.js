@@ -38,7 +38,7 @@ const HomePage = () => {
             </div>
             
             <section className="products">
-            <h2>The best vegan makeup for under $10</h2>
+            <h2>The best vegan makeup for under $5</h2>
                 <Notable array={temp} /> 
             </section>
             <section className="feature">
