@@ -19,6 +19,21 @@
     }
 
     //homePage
+    .header {
+        padding: 0 8%;
+    }
+
+    .featuredSection {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 2%;
+    }
+
+    .productItems {
+        .textContainer {
+            width: 28vw;
+            height: 30vh;
+        }
+    }
 
     //searchedProducts
     .productSection {
@@ -52,9 +67,4 @@
     }
     
     
-}
-
-@media (max-width: 940px) {
-
-     
 }
