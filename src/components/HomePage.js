@@ -64,7 +64,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
-            <section className="philosophy">
+            <section className="philosophy" id='aboutUs'>
                 <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dolor quod totam eius ea asperiores. In, iure. Nisi possimus, tempora vero culpa provident nulla similique eos fugiat, doloribus veniam illo.</h2>
             </section>
             <section className="ready">

@@ -1,0 +1,59 @@
+@media(max-width: 480px){
+
+    h1{
+        font-size: 3rem;
+    }
+
+    h3{
+        font-size: 1.2rem;
+    }
+
+    p, 
+    a,
+    button{
+        font-size: 0.8rem;
+        letter-spacing: 0.08rem;
+    }
+
+    .topBar{
+        .left{
+            top: 50px;
+            ul{
+                margin-right: 5px;
+            }
+            li {
+            padding-right: 15px;
+                a{
+                font-size: 0.7rem;
+                }
+            }
+        }
+        .right{
+            top: 50px;
+            svg{
+                right: 150px;
+                left: 0;
+            }
+            input{
+                max-height: 20px;
+                max-width: 130px;
+            }
+        }   
+    }
+
+    //searchedProducts
+    .productSection {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    //footer
+    footer{
+        .topSection li a{
+            font-size: 0.9rem;
+        }
+        p{
+            text-align: center;
+        }
+
+    }
+}
