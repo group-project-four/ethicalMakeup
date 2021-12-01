@@ -44,7 +44,7 @@ const EyeProducts = () => {
 
     return (
         <div>
-            <MainNav />
+            {/* <MainNav /> */}
             <div className="sectionWrapper">
                 <h2>Eye Makeup</h2>
                     <ul className="productSection">

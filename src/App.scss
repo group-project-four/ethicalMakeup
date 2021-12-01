@@ -1,13 +1,13 @@
-@import './normalize';
-@import './homePage';
-@import './generalStyles';
-@import './catalogueProductsStyles';
-@import './sectionPageStyles';
-@import './searchPage';
-@import './mainNav';
-@import './footer';
-@import './productPageStyles';
-@import './customerReviewStyles';
+@import './styling/normalize';
+@import './styling/homePage';
+@import './styling/generalStyles';
+@import './styling/catalogueProductsStyles';
+@import './styling/sectionPageStyles';
+@import './styling/searchPage';
+@import './styling/mainNav';
+@import './styling/footer';
+@import './styling/productPageStyles';
+@import './styling/customerReviewStyles';
 
 .logoContainer {
     display:flex;

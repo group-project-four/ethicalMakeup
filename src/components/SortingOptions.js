@@ -1,12 +1,14 @@
 
 
 const SortingOptions = (props) => {
+
+
     
     // const handleChangeOption = (event) => {
     //     console.log(event.target.value)
     
     //     if(event.target.value == 'alphabetical'){
-    //         const orderedPrice = filteredPrice.sort((a, b) => {
+    //         const orderedPrice = filteredPrice.sort(() => {
     //             return a.name > b.name
     //         })
     //         filteredPrice = [...orderedPrice]
@@ -28,15 +30,7 @@ const SortingOptions = (props) => {
     //     </section>
     // )
 
-     {/* <section>
-                    <label htmlFor="sorting"></label>
-                    <select name="sorting" id="sorting" onChange={handleChangeOption}>
-                        <option value defaultValue>Sort by</option>
-                        <option value="price">price</option>
-                        <option value="alphabetical">alphabetical</option>
-                        <option value="rating">rating</option>
-                    </select>
-                </section> */}
+     
                 {/* <SortingOptions filteredPrice={filteredPrice}/> */}
                 {/* <ul>
                     {

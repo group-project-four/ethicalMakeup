@@ -46,7 +46,7 @@ const FaceProducts = () => {
 
     return (
         <div>
-            <MainNav />
+            {/* <MainNav /> */}
             <div className="sectionWrapper">
                 <h2>Face Makeup</h2>
                 <ul className="productSection">

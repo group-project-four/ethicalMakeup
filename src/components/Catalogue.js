@@ -6,7 +6,7 @@ const Catalogue = () => {
 
     return (
         <main>
-            <MainNav />
+            {/* <MainNav /> */}
             <Link to="eyeproducts">
                 <div className="imgContainer">
                     <section className="eyeMakeupSection img">
