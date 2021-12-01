@@ -32,7 +32,7 @@ const MainNav = () => {
                     <nav>
                         <ul className="left">
                             <li><Link to="/">Home</Link></li>
-                            <li><a href="#">About us</a></li>
+                            <li><Link to="/">About us</Link></li>
                             <li><Link to="catalogue">Catalogue</Link></li>
                         </ul>
                     </nav>

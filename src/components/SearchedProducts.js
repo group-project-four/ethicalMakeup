@@ -9,7 +9,6 @@ const SearchedProducts = (props) => {
 
     const [products, setProduct] = useState([])
     const [errorMessage, setErrorMessage] = useState('')
-    const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
     const { productName } = useParams()
@@ -32,7 +31,6 @@ const SearchedProducts = (props) => {
                     return productFiltered.price > 0.0
                 })                
                 setProduct(filteredData)
-                setLoading(false)
                 setErrorMessage('')
             } else {
                 setProduct([])
@@ -44,15 +42,15 @@ const SearchedProducts = (props) => {
     const handleChangeOption = (event) => {
         console.log(event.target.value)  
 
-        if(event.target.value == 'alphabetical'){
-            const copyOfProducts =[...products]
+        if(event.target.value === 'alphabetical'){
+            const copyOfProducts = [...products]
             const orderedPrice = copyOfProducts.sort((a, b) => {
                 return a.name > b.name
             })
             setProduct(orderedPrice)   
         }
     }
-
+    setPostsPerPage(16)
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
@@ -103,7 +101,7 @@ const SearchedProducts = (props) => {
                         </div>
                     )
             }
-            <Posts products={currentPosts} loading={loading} />
+            <Posts products={currentPosts} />
             <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />
         </div>
     )
