@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 const EyeProducts = () => {
     // Set all products from API to state
     const [products, setProduct] = useState([])
+    const [errorAPI, setErrorAPI] = useState('')
 
     // Call API
     useEffect(() => {
@@ -17,7 +18,10 @@ const EyeProducts = () => {
             }
         }).then((response) => {
             setProduct(response.data);
-            console.log(response.data);
+        }).catch((error) => {
+            if (error.response) {
+                setErrorAPI('Sorry our API is unable to get the necessary information!')
+            }
         })
     }, [])
 
@@ -45,28 +49,29 @@ const EyeProducts = () => {
 
     return (
         <div>
+            <div className="ApiError">{errorAPI}</div>
             <div className="sectionWrapper">
                 <h2>Eye Makeup</h2>
-                    <ul className="productSection">
-                        {/* Map through the final filtered array and return each result as an li item */}
-                        {eyeProductAdj.map((product) => {
-                            return (
-                                // The user can click the product card anywhere if they want to see more info about it!
-                                <Link to={`/${product.id}`}>
-                                    <li key={product.id} className="productCard">
-                                        <img
-                                            src={product.image_link}
-                                            alt={product.name}
-                                            onError={imgError}
-                                        />
-                                        <h3>{product.name}</h3>
-                                        <p>$ {product.price}</p>
-                                        <button>More Info</button>
-                                    </li>
-                                </Link>
-                            );
-                        })}
-                    </ul>
+                <ul className="productSection">
+                    {/* Map through the final filtered array and return each result as an li item */}
+                    {eyeProductAdj.map((product) => {
+                        return (
+                            // The user can click the product card anywhere if they want to see more info about it!
+                            <Link to={`/${product.id}`}>
+                                <li key={product.id} className="productCard">
+                                    <img
+                                        src={product.image_link}
+                                        alt={product.name}
+                                        onError={imgError}
+                                    />
+                                    <h3>{product.name}</h3>
+                                    <p>$ {product.price}</p>
+                                    <button>More Info</button>
+                                </li>
+                            </Link>
+                        );
+                    })}
+                </ul>
             </div>
         </div>
     )

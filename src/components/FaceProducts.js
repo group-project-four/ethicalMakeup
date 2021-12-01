@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 const FaceProducts = () => {
     // Set all products from API to state
     const [products, setProduct] = useState([])
+    const [errorAPI, setErrorAPI] = useState('')
 
     // Call API
     useEffect(() => {
@@ -16,7 +17,10 @@ const FaceProducts = () => {
             }
         }).then((response) => {
             setProduct(response.data)
-            console.log(response.data)
+        }).catch((error) => {
+            if (error.response) {
+                setErrorAPI('Sorry our API is unable to get the necessary information!')
+            }
         })
     }, [])
 
@@ -45,6 +49,7 @@ const FaceProducts = () => {
 
     return (
         <div>
+            <div className="ApiError">{errorAPI}</div>
             {/* <MainNav /> */}
             <div className="sectionWrapper">
                 <h2>Face Makeup</h2>

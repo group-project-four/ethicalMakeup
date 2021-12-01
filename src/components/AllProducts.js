@@ -10,7 +10,8 @@ const AllProducts = () => {
     const [products, setProduct] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
-    
+    const [errorAPI, setErrorAPI] = useState('')
+
     //no query is passed in the handleQuery where the api is called
     useEffect(() => {
         handleQuery()
@@ -29,6 +30,10 @@ const AllProducts = () => {
                 setProduct(response.data)
                 setPostsPerPage(16)
             }
+        }).catch((error) => {
+            if (error.response) {
+                setErrorAPI('Sorry our API is unable to get the necessary information!')
+            }
         })
     }
 
@@ -41,7 +46,7 @@ const AllProducts = () => {
         image.target.src =
             "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";
     }
-    
+
     //pagination: defining index of last and first post and further slicing the array with all the api data and saving it in a constant called currentPosts
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
@@ -50,6 +55,7 @@ const AllProducts = () => {
 
     return (
         <div>
+            <div className="ApiError">{errorAPI}</div>
             <ul className="productSection">
                 {/* mapping through currentPosts in order to diplay the information on the page */}
                 {
