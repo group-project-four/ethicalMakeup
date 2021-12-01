@@ -64,9 +64,8 @@ const CustomerReview = (props) => {
             }
             setReviews(newArray)
         })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
+    }, [props.product])
+    
     return (
         <div>
             <div className="formContainer">
@@ -95,7 +94,7 @@ const CustomerReview = (props) => {
                         />
                         <div className="checkBoxes">
                             <label htmlFor="checkbox">Would you repurchase the product?</label>
-                            <input type="checkbox" id="checkbox" value={checkbox} onChange={handleCheckbox} />                        
+                            <input type="checkbox" id="checkbox" className="checkbox" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="checkbox" value={checkbox} onChange={handleCheckbox} />                        
                         </div>
                         <label htmlFor="rating" className="visuallyHidden">Rating 1-5</label>
                         <p className="ratingLabel">Your rating:</p>
@@ -117,7 +116,7 @@ const CustomerReview = (props) => {
                             reviews.map((review, index) => {
                                 return (
                                     <li key={index} className="singleReview">
-                                        <h3>{review.name}</h3>
+                                        <h3>{review.name} says:</h3>
                                         <p>{review.rating} / 5</p>
                                         <p>{review.review}</p>
                                         <p>{review.checkbox}</p>

@@ -16,7 +16,6 @@ const LipProducts = () => {
             }
         }).then((response) => {
             setProduct(response.data);
-            // console.log(response.data);
         })
     }, [])
 

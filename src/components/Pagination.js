@@ -9,12 +9,12 @@ function Pagination({postsPerPage, totalPosts, paginate}) {
 
     //mapping through page numbers and use the function paginate to set the current page number
     return(
-        <nav className="pageNumebrs">
+        <nav className="pageNumbers">
             {pageNumbers.map(number => 
                 <li key={number}>
-                    <a onClick={() => paginate(number)} href="#">
+                    <button onClick={() => paginate(number)} >
                         {number}
-                    </a>
+                    </button>
                 </li>
             )}
         </nav>
