@@ -24,9 +24,6 @@ const HomePage = () => {
         })
     },[])
 
-    /**
-     * goal is to get 6 products that are using the vegan tag and display it to the page
-     */
     return (
         <main>
             <div className="headerContainer">
@@ -51,18 +48,19 @@ const HomePage = () => {
                         <p>Show us how you make it work</p>
                     </div>
                     <div className="featureContentImages">
-                        <figure className="bottom-right">
-                            <img src={bottomRight} alt="" />
-                        </figure>
-                        <figure className="top-right">
-                            <img src={topRight} alt="" />
-                        </figure>
-                        <figure className="top-left">
+                        {/* <figure className="top-left"> */}
                             <img src={topLeft} alt="" />
-                        </figure>
-                        <figure className="bottom-left">
+                        {/* </figure> */}
+                        {/* <figure className="top-right"> */}
+                            <img src={topRight} alt="" />
+                        {/* </figure> */}
+                        {/* <figure className="bottom-right"> */}
+                            <img src={bottomRight} alt="" />
+                        {/* </figure> */}
+                        {/* <figure className="bottom-left"> */}
                             <img src={bottomLeft} alt="" />
-                        </figure>
+                        {/* </figure> */}
+                        
                     </div>
                 </div>
             </section>

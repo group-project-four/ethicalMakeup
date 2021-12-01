@@ -119,39 +119,21 @@
 }
 .featureContentContainer {
     height: auto;
-    width: 100vw;
+    width: 100%;
 }
 .featureContentImages {
     display: grid;
-    grid-template-columns: 3fr;
+    grid-template-columns: 40% 60%;
     grid-template-rows: 1fr 1fr;
-    grid-auto-flow: column;
-    grid-template-areas:
-      "top-left . top-right"
-      "bottom-left . bottom-right";
-  }
-  
-.bottom-right { 
-      grid-area: bottom-right;
-      }
-  
-.top-right { 
-      grid-area: top-right;
-    }
-  
-.top-left { 
-      grid-area: top-left;
-     }
-  
-  .bottom-left { 
-      grid-area: bottom-left;
-     }
-
-.featureContentImages img {
-        width: 100%;
+    column-gap: 1.5%;
+    row-gap: 3.2%;
+    padding: 8vh 0;
+      img {
+        width: 97%;
         height: 100%;
         object-fit: cover;
     }
+  }
 
 .philosophy {
         height: 100%;
