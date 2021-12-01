@@ -113,6 +113,7 @@ const SearchedProducts = (props) => {
                         </div>
                     )
             }
+            {/* importing page number components */}
             <Posts products={currentPosts} />
             <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />
         </div>
