@@ -1,11 +1,12 @@
 
 import { useEffect} from "react"
 import {useState} from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Notable from './Notable'
 import topLeft from '../images/skincare-and-makeup-masterclass-16103245.jpg'
-import topRight from '../images/skincare-and-makeup-masterclass-16103432.jpg'
-import bottomRight from '../images/tp-best-natural-makeup-looks-1.jpg'
+import topRight from '../images/tp-best-natural-makeup-looks-1.jpg'
+import bottomRight from '../images/headerImage.jpg'
 import bottomLeft from '../images/Danessa-1-1551x1000.jpg'
 
 const HomePage = () => {
@@ -28,12 +29,16 @@ const HomePage = () => {
      */
     return (
         <main>
-            {/* <MainNav /> */}
-            <section className="header">
-                <h1>Value Proposition</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
-                <button>Discover More</button>
-            </section>
+            <div className="headerContainer">
+                <section className="header">
+                    <h1>Value Proposition</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente nemo modi dicta libero soluta quibusdam ea illo asperiores.</p>
+                    <Link to="catalogue">
+                     <button>Discover More</button>
+                    </Link>
+                </section>
+                <div className="overlay2"></div>
+            </div>
             
             <section className="products">
             <h2>The best vegan makeup for under $10</h2>

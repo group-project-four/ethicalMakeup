@@ -1,101 +1,114 @@
+.headerContainer {
+    height: 80vh;
+}
 .header {
-    height: 700px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
-    // color: #fff;
-}
-
-.header::before {
-    display: block;
-    position: absolute;
-    background-image: url("../images/headerImage.jpg");
+    background-image: url("../images/skincare-and-makeup-masterclass-16103432.jpg");
     background-size: cover; 
     background-position: center;
     content: "";
     background-repeat: no-repeat, repeat;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -10;
-    opacity: 0.8;
+    h1{
+        color: white;
+        position: relative;
+        z-index: 10;
+    }
+    p{
+        color:white;
+        position: relative;
+        z-index: 10;
+    }
+    button {
+        background-color: #9A8C9860;
+        border: white 1px solid;
+        color: white;
+        font-size: 20px;
+        padding: 10px 60px;
+        border-radius: 5px;
+        margin: 10px 0px;
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
+    }
 }
+.overlay2 {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 80vh;
+    width: 100%;
+    left: 0;
+    top: 29.8vh;
+    bottom: 0;
+    right: 0;
+    opacity: 0.23;
+  }
 
 .products {
-    background-color: #C9ADA7;
-    padding: 5%;
-    max-width: 100%;
-}
-
-.products h2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    // margin: 5%;
-    font-weight: bolder;
-    margin-top: 0;
-    padding-top: 5%;
-}
-
-.products > ul:nth-child(2) {
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-    align-self: center;
-    align-items: baseline;
-    // min-height: 200px;
-    max-width: 80vw;
-    margin: 10%;
-    gap: 100px; 
-    img {
-        // border-radius: 50px;
-        border: 20px solid #F2E9E4;
+    background-color: #e0d5d2;
+    padding: 0 5% 5% 5%;
+    width: 100%;
+    h2 {
+        width: 100%;
+        text-align: center;
+        padding: 5% 0;
+        margin:0;
     }
 }
 
+.featuredSection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 2%;
+    padding:0;
+}
+
 .productItems {
-    min-height: 500px;
-    width: 600px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    align-content: space-between;
-    align-self: center;
-    background-color: #F2E9E4;
-    border-radius: 10px;
-    padding: 1rem;
-    flex-basis: auto;
-}
-
-.productItems a {
-    flex-basis: auto;
-}
-
-.productItems h3, p {
-    text-align: center;
-}
-
-.header button {
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    padding: 10px 60px;
-    border-radius: 5px;
-    margin: 10px 0px;
-    cursor: pointer;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-radius: 2%;
+    height: 100%;
+    background-color: #ffffff;
+    img {
+        width: 90%;
+    }
+    
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 27vh;
+        width: 17vw;
+        button{
+            width: 60%;
+        }
+        h3{
+            text-align: left;
+            width: 100%;
+            margin-bottom: 0;
+            margin-top: 15%;
+        }
+        p{
+            text-align: left;
+            width: 100%;
+            margin-top: 0;
+        }
+    }
 }
 
 .feature {
-    // height: 1000px;
     display: flex;
     justify-content: center;
     align-content: center;
-    // width: 100%;
 }
 
 .containerHeader  {
@@ -105,10 +118,8 @@
     align-content: center;
 }
 .featureContentContainer {
-    // max-width: 80vw;
     height: auto;
     width: 100vw;
-    // height: 700px;
 }
 .featureContentImages {
     display: grid;
@@ -118,10 +129,6 @@
     grid-template-areas:
       "top-left . top-right"
       "bottom-left . bottom-right";
-    // max-width: 80%;
-    // padding-left: 10%;
-    // padding-right: 10%;
-    // height: 1000px;
   }
   
 .bottom-right { 
@@ -147,16 +154,15 @@
     }
 
 .philosophy {
-        height: 500px;
+        height: 100%;
         width: 100%;
-        padding-left: 10%;
-        padding-right: 10%;
+        padding: 0 10%;
         display: flex;
         justify-content: center;
         align-content: space-around;
-        padding-bottom: 100px;
         h2 {
-            font-weight: 800;
+            text-align: center;
+            font-weight: 500;
             font-size: 5rem;
         }
     }
@@ -171,12 +177,35 @@
     max-width: 100vw;
     height: 1000px;
     position: relative;
+    h3 {
+        font-size: 72px;
+        font-family: 'Cormorant', serif;
+        color: white;
+    }
+    p {
+        width: 70%;
+        font-family: 'Hind Siliguri', sans-serif;
+        font-weight: 400;
+        font-size: 3rem;
+        letter-spacing: 0.08rem;
+        color: white;
+    }
+    button {
+        background-color: #9A8C9860;
+        border: white 1px solid;
+        color: white;
+        font-size: 20px;
+        padding: 10px 60px;
+        border-radius: 5px;
+        margin: 10px 0px;
+        cursor: pointer;
+    }
 }
 
 .ready::before {
     display: block;
     position: absolute;
-    background-image: url("../images/pesce-huang-CNMMvIQJS2Y-unsplash.jpg");
+    background-image: url("../images/LastSectionImg1.jpg");
     background-size: cover; 
     background-position: center;
     content: "";
@@ -186,30 +215,7 @@
     bottom: 0;
     left: 0;
     z-index: -10;
-    opacity: 0.8;
+    opacity: 0.95;
 }
 
-.ready h3 {
-    font-size: 72px;
-    font-family: 'Cormorant', serif;
-    color: #22223B;
-}
-
-.ready p {
-    width: 70%;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-weight: 400;
-    font-size: 3rem;
-    letter-spacing: 0.08rem;
-    color: #22223B;
-}
-
-.ready button {
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    padding: 10px 60px;
-    border-radius: 5px;
-    margin: 10px 0px;
-    cursor: pointer;
-}
+// There was a time I was in charge of setting up a meeting with the executives and I had made a scheduling mistake. I immediately awknowledged it and worked to resolve it with everyone right away by apologizing and rescheduling ASAP. I always understand mistakes happen, it just matters how you resolve it, I think it's important to awknowledge it and work to resolve it ASAP.
