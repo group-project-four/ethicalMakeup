@@ -1,6 +1,6 @@
 
-import { useEffect} from "react"
-import {useState} from 'react'
+import { useEffect } from "react"
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Notable from './Notable'
@@ -10,7 +10,8 @@ import bottomRight from '../images/headerImage.jpg'
 import bottomLeft from '../images/Danessa-1-1551x1000.jpg'
 
 const HomePage = () => {
-    const [temp,setTemp] = useState([])
+    const [temp, setTemp] = useState([])
+    const [errorAPI, setErrorAPI] = useState('')
     useEffect(() => {
         axios({
             url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
@@ -21,25 +22,30 @@ const HomePage = () => {
             }
         }).then(response => {
             setTemp(response.data)
+        }).catch((error) => {
+            if (error.response) {
+                setErrorAPI('Sorry our API is unable to get the necessary information!')
+            }
         })
-    },[])
+    }, [])
 
     return (
         <main>
             <div className="headerContainer">
+                <div className="ApiError">{errorAPI}</div>
                 <section className="header">
                     <h1>Value Proposition</h1>
                     <p>Sustainable and eco-friendly friendly makeup to achieve sustainable beauty.</p>
                     <Link to="catalogue">
-                     <button>Discover More</button>
+                        <button>Discover More</button>
                     </Link>
                 </section>
                 <div className="overlay2"></div>
             </div>
-            
+
             <section className="products">
-            <h2>The best vegan makeup for under $5</h2>
-                <Notable array={temp} /> 
+                <h2>The best vegan makeup for under $5</h2>
+                <Notable array={temp} />
             </section>
             <section className="feature">
                 <div className="featureContentContainer">
@@ -48,19 +54,10 @@ const HomePage = () => {
                         <p>Show us how you make it work</p>
                     </div>
                     <div className="featureContentImages">
-                        {/* <figure className="top-left"> */}
-                            <img src={topLeft} alt="" />
-                        {/* </figure> */}
-                        {/* <figure className="top-right"> */}
-                            <img src={topRight} alt="" />
-                        {/* </figure> */}
-                        {/* <figure className="bottom-right"> */}
-                            <img src={bottomRight} alt="" />
-                        {/* </figure> */}
-                        {/* <figure className="bottom-left"> */}
-                            <img src={bottomLeft} alt="" />
-                        {/* </figure> */}
-                        
+                        <img src={topLeft} alt="" />
+                        <img src={topRight} alt="" />
+                        <img src={bottomRight} alt="" />
+                        <img src={bottomLeft} alt="" />
                     </div>
                 </div>
             </section>

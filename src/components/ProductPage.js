@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 const ProductPage = () => {
     // Setting state to hold the product info to be displayed
     const [individualProducts, setIndividualProduct] = useState({})
+    const [errorAPI, setErrorAPI] = useState('')
     // Setting productID as the params to use in the URL
     const productID = useParams()
 
@@ -19,7 +20,7 @@ const ProductPage = () => {
             setIndividualProduct(response.data)
         }).catch((error) => {
             if (error.response) {
-                console.log(error.response)
+                setErrorAPI('Sorry our API is unable to get the necessary information!')
             }
         })
     }, [productID.productID])
@@ -29,6 +30,7 @@ const ProductPage = () => {
 
     return (
         <div>
+            <div className="ApiError">{errorAPI}</div>
             {/* information about each individual product is displayed  */}
             <section className="productInfoContainer">
                 <div className="column1">
@@ -46,7 +48,7 @@ const ProductPage = () => {
             </section>
             <section className="productReviewContainer">
                 {/* Calling the customer review param to show the customer review form & all reviews on each product */}
-                <CustomerReview product={productID.productID}/>
+                <CustomerReview product={productID.productID} />
             </section>
 
         </div>
