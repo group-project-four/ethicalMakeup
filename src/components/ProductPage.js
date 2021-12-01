@@ -10,7 +10,7 @@ const ProductPage = () => {
     // Setting productID as the params to use in the URL
     const productID = useParams()
 
-
+    //The useEffext is used to call the api and pass in the product.Id of each individial product, this only happens when the product.id exists
     useEffect(() => {
         axios({
             // URL taking the productID params to link the url to the specific product the user clicks
@@ -29,6 +29,7 @@ const ProductPage = () => {
 
     return (
         <div>
+            {/* information about each individual product is displayed  */}
             <section className="productInfoContainer">
                 <div className="column1">
                     <img

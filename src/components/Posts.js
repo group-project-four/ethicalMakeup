@@ -1,5 +1,6 @@
 
 function Post({ products }) {
+    //takes in all the products maps 
     return (
         <ul>
             {products.map(product =>
