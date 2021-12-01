@@ -48,19 +48,10 @@ const HomePage = () => {
                         <p>Show us how you make it work</p>
                     </div>
                     <div className="featureContentImages">
-                        {/* <figure className="top-left"> */}
-                            <img src={topLeft} alt="" />
-                        {/* </figure> */}
-                        {/* <figure className="top-right"> */}
-                            <img src={topRight} alt="" />
-                        {/* </figure> */}
-                        {/* <figure className="bottom-right"> */}
-                            <img src={bottomRight} alt="" />
-                        {/* </figure> */}
-                        {/* <figure className="bottom-left"> */}
-                            <img src={bottomLeft} alt="" />
-                        {/* </figure> */}
-                        
+                            <img src={topLeft} alt="two female models posing together" className="pic1" />
+                            <img src={topRight} alt="one female model touching her lip" className="pic2" />
+                            <img src={bottomRight} alt="three models with nice makeup on" className="pic3" />
+                            <img src={bottomLeft} alt="flatlay of pink makeup on pink background" className="pic4" />
                     </div>
                 </div>
             </section>
