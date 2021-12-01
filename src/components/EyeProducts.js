@@ -12,6 +12,7 @@ const EyeProducts = () => {
         axios({
             url: "http://makeup-api.herokuapp.com/api/v1/products.json",
             params: {
+                // Filter the products by the product tag of vegan
                 product_tags: "vegan"
             }
         }).then((response) => {
@@ -47,8 +48,10 @@ const EyeProducts = () => {
             <div className="sectionWrapper">
                 <h2>Eye Makeup</h2>
                     <ul className="productSection">
+                        {/* Map through the final filtered array and return each result as an li item */}
                         {eyeProductAdj.map((product) => {
                             return (
+                                // The user can click the product card anywhere if they want to see more info about it!
                                 <Link to={`/${product.id}`}>
                                     <li key={product.id} className="productCard">
                                         <img

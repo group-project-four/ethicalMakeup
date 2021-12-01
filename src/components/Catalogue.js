@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 const Catalogue = () => {
     return (
         <main>
+            {/* Linking each section to the individual section for all the products pertaining to eyes, lips or face */}
             <Link to="eyeproducts">
                 <div className="imgContainer">
                     <section className="eyeMakeupSection img">

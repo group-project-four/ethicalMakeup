@@ -45,8 +45,10 @@ const LipProducts = () => {
             <div className="sectionWrapper">
                 <h2>Lip Makeup</h2>
                 <ul className="productSection">
+                    {/* Map through the final filtered array and return each result as an li item */}
                     {lipProductAdj.map((product) => {
                         return (
+                            // The user can click the product card anywhere if they want to see more info about it!
                             <Link to={`/${product.id}`}>
                                 <li key={product.id} className="productCard">
                                     <img
