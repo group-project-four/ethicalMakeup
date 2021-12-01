@@ -16,7 +16,12 @@
     }
 
     // Top Nav Bar
+    header {
+        margin-bottom: 8vh;
+    }
+
     .topBar{
+        
         .left{
             top: 20px;
             flex-direction: column;
