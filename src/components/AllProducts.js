@@ -20,7 +20,7 @@ const AllProducts = () => {
     //calling the api and fetching the data to setProduct to response
     const handleQuery = (query) => {
         axios({
-            url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
+            url: 'https://makeup-api.herokuapp.com/api/v1/products.json',
             params: {
                 product_type: query,
                 product_tags: "vegan"

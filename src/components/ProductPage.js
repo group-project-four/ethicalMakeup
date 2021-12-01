@@ -15,7 +15,7 @@ const ProductPage = () => {
     useEffect(() => {
         axios({
             // URL taking the productID params to link the url to the specific product the user clicks
-            url: `http://makeup-api.herokuapp.com/api/v1/products/${productID.productID}.json`,
+            url: `https://makeup-api.herokuapp.com/api/v1/products/${productID.productID}.json`,
         }).then((response) => {
             setIndividualProduct(response.data)
         }).catch((error) => {

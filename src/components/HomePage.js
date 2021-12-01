@@ -14,7 +14,7 @@ const HomePage = () => {
     const [errorAPI, setErrorAPI] = useState('')
     useEffect(() => {
         axios({
-            url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
+            url: 'https://makeup-api.herokuapp.com/api/v1/products.json',
             params: {
                 product_tags: 'Vegan',
                 price_less_than: 5,
