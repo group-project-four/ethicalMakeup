@@ -2,21 +2,30 @@
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+
+//importing components
 import Pagination from './Pagination'
 import Posts from './Posts'
 
 const SearchedProducts = (props) => {
 
+    //defining setState to hold data from the api, an error message, current and posts per page
     const [products, setProduct] = useState([])
     const [errorMessage, setErrorMessage] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
+
+    //deconstructing productName imported from the component MainNav referenced to the user input search 
     const { productName } = useParams()
 
+    //productName or the user's query is passed to handle query in a useEffect 
     useEffect(() => {
         handleQuery(productName)
     }, [productName])
 
+    //handleQuery function calls the api, passes through the user's input
+    //setProducts is assigned to the data from the api after the data is filtered to remove products without price
+    //then using an if statement for when there is no results setError message
     const handleQuery = (query) => {
         axios({
             url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
@@ -40,16 +49,20 @@ const SearchedProducts = (props) => {
         })
     }
 
-    const handleChangeOption = (event) => {
+    //fuunction is called when alphabetical option is selected
+    const handleChangeOption = (event) => { 
         if(event.target.value === 'alphabetical'){
+            //a copy of all the data is made so it can be sorted alphabetically
             const copyOfProducts = [...products]
             const orderedPrice = copyOfProducts.sort((a, b) => {
                 return a.name > b.name
             })
+            //set product is updated to alphabetical order
             setProduct(orderedPrice)   
         }
     }
 
+    //pagination: defining index of last and first post and further slicing the array with all the api data and saving it in a constant called currentPosts
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
@@ -100,6 +113,7 @@ const SearchedProducts = (props) => {
                         </div>
                     )
             }
+            {/* importing page number components */}
             <Posts products={currentPosts} />
             <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} />
         </div>
