@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 const Catalogue = () => {
     return (
         <main>
+            {/* Linking each section to the individual section for all the products pertaining to eyes, lips or face */}
             <Link to="eyeproducts">
                 <div className="imgContainer">
                     <section className="eyeMakeupSection img">
-                        <h1>Eye</h1>
+                        <h2>Eye</h2>
+                        <button className="catalogueButton">Shop More Eye</button>
                     </section>
                     <div className="overlay"></div>
                 </div>
@@ -16,7 +18,8 @@ const Catalogue = () => {
             <Link to="lipproducts">
                 <div className="imgContainer">
                     <section className="lipMakeupSection">
-                        <h1>Lip</h1>
+                        <h2>Lip</h2>
+                        <button className="catalogueButton">Shop More Lip</button>
                     </section>
                     <div className="overlay"></div>
                 </div>
@@ -24,7 +27,8 @@ const Catalogue = () => {
             <Link to="faceproducts">
                 <div className="imgContainer">
                 <section className="faceMakeupSection">
-                    <h1>Face</h1>
+                    <h2>Face</h2>
+                    <button className="catalogueButton">Shop More Face</button>
                 </section>
                 <div className="overlay"></div>
                 </div>

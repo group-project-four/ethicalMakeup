@@ -7,7 +7,7 @@
 .overlay {
   background: rgba(0, 0, 0, 0.7);
   position: absolute;
-  height: 99%;
+  height: 100%;
   width: 100%;
   left: 0;
   top: 0;
@@ -29,13 +29,32 @@
   background-size: cover;
   margin: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  h1 {
+  h2 {
     color: white;
     font-size: 8rem;
     position:relative;
     z-index: 10;
+    text-align: center;
+    margin-bottom:1rem;
+    margin-top: -2rem;
+  }
+  button {
+    position:relative;
+    z-index: 10;
+    margin-top:2rem;
+    background-color:#9A8C9800;
+    border: white 1px solid;
+    color: white;
+  
+  }
+  button:hover{
+    color: #9A8C98;
+    background-color:white ;
+    border: white 1px solid;
+    cursor:pointer;
   }
 }
 
@@ -48,13 +67,32 @@
   background-position: center;
   margin: -5vh 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  h1 {
+  h2 {
     color: white;
     font-size: 8rem;
     position:relative;
     z-index: 10;
+    text-align: center;
+    margin-bottom:1rem;
+    margin-top: -2rem;
+  }
+  button {
+    position:relative;
+    z-index: 10;
+    margin-top:2rem;
+    background-color:#9A8C9800;
+    border: white 1px solid;
+    color: white;
+  
+  }
+  button:hover{
+    color: #9A8C98;
+    background-color:white ;
+    border: white 1px solid;
+    cursor:pointer;
   }
 }
 
@@ -66,12 +104,31 @@
   background-size: cover;
   margin: -5vh 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  h1 {
+  h2 {
     color: white;
     font-size: 8rem;
     position:relative;
     z-index: 10;
+    text-align: center;
+    margin-bottom:1rem;
+    margin-top: -2rem;
+  }
+  button {
+    position:relative;
+    z-index: 10;
+    margin-top:2rem;
+    background-color:#9A8C9800;
+    border: white 1px solid;
+    color: white;
+  
+  }
+  button:hover{
+    color: #9A8C98;
+    background-color:white ;
+    border: white 1px solid;
+    cursor:pointer;
   }
 }
