@@ -29,7 +29,7 @@ const SearchedProducts = (props) => {
     //then using an if statement for when there is no results setError message
     const handleQuery = (query) => {
         axios({
-            url: 'http://makeup-api.herokuapp.com/api/v1/products.json',
+            url: 'https://makeup-api.herokuapp.com/api/v1/products.json',
             params: {
                 product_type: query,
                 product_tags: "vegan"

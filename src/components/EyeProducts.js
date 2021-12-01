@@ -11,7 +11,7 @@ const EyeProducts = () => {
     // Call API
     useEffect(() => {
         axios({
-            url: "http://makeup-api.herokuapp.com/api/v1/products.json",
+            url: "https://makeup-api.herokuapp.com/api/v1/products.json",
             params: {
                 // Filter the products by the product tag of vegan
                 product_tags: "vegan"
