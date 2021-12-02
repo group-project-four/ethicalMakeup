@@ -9,7 +9,7 @@ const CustomerReview = (props) => {
     const [input, setInput] = useState('')
     const [rating, setRating] =  useState(0)
     const [checkbox, setCheckbox] = useState(false)
-
+    
     const handleFormSubmit = (event) => {
         event.preventDefault()
         addToDatabase(props)
@@ -43,6 +43,7 @@ const CustomerReview = (props) => {
     }
 
     const handleCheckbox = (event) => {
+
         if (event.target.checked) {
             // updating checkbox visual
             setCheckbox(!checkbox)
@@ -63,6 +64,7 @@ const CustomerReview = (props) => {
                 newArray.push(data[key])
             }
             setReviews(newArray)
+            setRecommendation("I do not recommend this product")
         })
     }, [props.product])
     
