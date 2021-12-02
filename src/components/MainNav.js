@@ -43,12 +43,13 @@ const MainNav = () => {
                     </nav>
                     {/* handleFormSubmit is called when the user submits their search query */}
                     <form onSubmit={handleFormSubmit} className="right">
-                        <label htmlFor="searchTab" class="visuallyHidden">Search all products</label>
+                        <label htmlFor="searchTab" className="visuallyHidden">Search all products</label>
                         <div>
                             <BsSearch onClick={handleSearchTag} />
                                 <input
                                     type="text"
                                     id="searchTab"
+                                    className="searchBar"
                                     value={inputSearch}
                                     onChange={handleChange}
                                     onMouseOver={handleSearchBar}

@@ -31,6 +31,9 @@ h1{
             height: 40px;
             width: 100px;
             border: none;
+            &:focus{
+                background-color: #9A8C98;
+            }
         }
         svg{
             position: absolute;
@@ -43,5 +46,20 @@ h1{
 .error{
     display: flex;
     justify-content: center;
+}
+
+.searchBar {
+    border: 1px solid #22223b;
+    padding: 0.7rem;
+}
+
+.logoContainer {
+    display:flex;
+    justify-content: center;
+
+}
+.logo {
+    display:inline;
+    width: 13%;
 }
 

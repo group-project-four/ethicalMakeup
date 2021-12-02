@@ -18,7 +18,7 @@
 }
 
 .overlay:hover,
-.overlay:hover:focus {
+.overlay:focus {
   opacity: 0.3;
 }
 
@@ -52,7 +52,8 @@
     color: white;
   
   }
-  button:hover{
+  button:hover,
+  button:focus{
     color: #9A8C98;
     background-color:white ;
     border: white 1px solid;
@@ -90,7 +91,8 @@
     color: white;
   
   }
-  button:hover{
+  button:hover,
+  button:focus{
     color: #9A8C98;
     background-color:white ;
     border: white 1px solid;
@@ -128,7 +130,8 @@
     color: white;
   
   }
-  button:hover{
+  button:hover,
+  button:focus{
     color: #9A8C98;
     background-color:white ;
     border: white 1px solid;

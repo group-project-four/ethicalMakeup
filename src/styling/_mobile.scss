@@ -19,20 +19,25 @@
     header {
         margin-bottom: 8vh;
     }
+    .logo {
+        width: 25%;
+    }
+
+    ul{
+        margin-right: 2px;
+        padding-left: 20px;
+    }
 
     .topBar{
-        
+        flex-direction: column;
         .left{
             top: 20px;
             flex-direction: column;
-            ul{
-                margin-right: 5px;
-            }
+            
             li {
-            padding-right: 15px;
-            padding-top: 5px;
+            padding-top: 10px;
                 a{
-                font-size: 0.7rem;
+                font-size: 1rem;
                 }
             }
         }
@@ -52,7 +57,7 @@
 
     //Home Page
     .products {
-        height: 350vh;
+        height: 300vh;
 
     }
     .featuredSection {
@@ -85,7 +90,7 @@
 
     .philosophy{
         h2{
-            font-size: 3rem;
+            font-size: 2rem;
         }
     }
 
