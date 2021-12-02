@@ -66,7 +66,7 @@ const HomePage = () => {
             </section>
             <section className="ready">
                 <h3>Ready to get started?</h3>
-                <p>We’re all about makeup that enhances natural beauty.</p>
+                <p>We are all about makeup that enhances natural beauty.</p>
                 <button>Start free trial</button>
             </section>
         </main>

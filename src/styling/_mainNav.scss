@@ -31,6 +31,9 @@ h1{
             height: 40px;
             width: 100px;
             border: none;
+            &:focus{
+                background-color: #9A8C98;
+            }
         }
         svg{
             position: absolute;
