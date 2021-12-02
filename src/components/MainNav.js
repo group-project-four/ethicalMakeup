@@ -49,6 +49,7 @@ const MainNav = () => {
                                 <input
                                     type="text"
                                     id="searchTab"
+                                    className="searchBar"
                                     value={inputSearch}
                                     onChange={handleChange}
                                     onMouseOver={handleSearchBar}
