@@ -45,6 +45,9 @@ footer{
         p{
             a{
                 color: black;
+                &:focus{
+                    color: #9A8C98;
+                }
             }
         }
     }
