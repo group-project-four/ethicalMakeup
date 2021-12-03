@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Ethical Makeup 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Juno Web Developement Bootcamp | Cohort 37 | Project 4
+### Built by: Dani, Ibrahim, James & Parisa
 
-In the project directory, you can run:
+Hosted on Netlify here: https://ethical-makeup-4.netlify.app
 
-### `npm start`
+![Screenshot of the homepage](https://user-images.githubusercontent.com/91764847/144527208-29813970-81ac-4fcc-9c39-e6e1bf4405ff.JPG)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About the Application
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This makeup e-commerce site lands users on the homepage where the user can view some featured vegan makeup products that are under $10 as well as the user can view other pages for more information on the site. Users may go to the catalogue to view the different products that are split up into three sections giving users an easier way to find what they're looking for. 
 
-### `npm test`
+![Screenshot of the catalogue page](https://user-images.githubusercontent.com/91764847/144527251-00025196-d2ba-4132-b499-c4bd1c072f7c.JPG)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The user at any point may search for a type of product in the search area that is found in the top navagation bar of the screen at all times. If nothing is entered in the search bar it will display all products, and if a query is inputted with no matching results, an error will display on the screen. 
 
-### `npm run build`
+![Screenshot of the search results page](https://user-images.githubusercontent.com/91764847/144527253-ad5a7497-38f3-4334-9f86-d6dcc546e4af.JPG)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If the user would like to see more information about a product they may click on the product itself which will load a page with more information on it such as the description and rating. Users may also view reviews of each product and they can also post a review themselves.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Screenshot of a individual product page](https://user-images.githubusercontent.com/91764847/144527254-25f10e21-c52c-4e97-bda2-566c5b8d8397.JPG)
+![Screenshot of the review form](https://user-images.githubusercontent.com/91764847/144527247-9b2bdcfe-daa5-45fc-9c78-3abd0c1639da.JPG)
+![Screenshot of a review](https://user-images.githubusercontent.com/91764847/144527248-d765881b-76bd-4bf6-aa01-5c9b750dedef.JPG)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Used
 
-### `npm run eject`
+This application was built using react, axios and scss. The makeup information was pulled from a makeup API and the reviews are stored using Firebase.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
