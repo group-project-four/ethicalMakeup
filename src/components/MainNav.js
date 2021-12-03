@@ -31,7 +31,7 @@ const MainNav = () => {
     }
 
     return (
-        <div>
+        <div className="wrapper">
             <ul>
                 <div className="topBar">
                     <nav>

@@ -29,7 +29,7 @@ const ProductPage = () => {
     const { image_link, description, product_link, brand, name, rating } = individualProducts
 
     return (
-        <div>
+        <div className="wrapper">
             <div className="ApiError">{errorAPI}</div>
             {/* information about each individual product is displayed  */}
             <section className="productInfoContainer">

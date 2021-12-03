@@ -54,7 +54,7 @@ const SearchedProducts = (props) => {
         })
     }
 
-    //fuunction is called when alphabetical option is selected
+    //function is called when alphabetical option is selected
     const handleChangeOption = (event) => { 
         if(event.target.value === 'alphabetical'){
             //a copy of all the data is made so it can be sorted alphabetically
@@ -79,11 +79,12 @@ const SearchedProducts = (props) => {
     }
 
     return (
-        <div className="sectionWrapper">
+        <div className="sectionWrapper wrapper">
             <div className="ApiError">{errorAPI}</div>
             {
                 products.length > 0 ?
-                    (<div>
+                    (
+                    <div>
                         <section>
                             <label htmlFor="sorting"></label>
                             <select name="sorting" id="sorting" onChange={handleChangeOption}>

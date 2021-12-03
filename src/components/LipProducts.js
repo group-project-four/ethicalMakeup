@@ -45,7 +45,7 @@ const LipProducts = () => {
     }
 
     return (
-        <div>
+        <div className="wrapper">
             <div className="sectionWrapper">
                 <div className="ApiError">{errorAPI}</div>
                 <h2>Lip Makeup</h2>

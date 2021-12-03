@@ -43,11 +43,11 @@ const HomePage = () => {
                 <div className="overlay2"></div>
             </div>
 
-            <section className="products">
+            <section className="products wrapper">
                 <h2>The best vegan makeup for under $5</h2>
                 <Notable array={temp} />
             </section>
-            <section className="feature">
+            <section className="feature wrapper">
                 <div className="featureContentContainer">
                     <div className="containerHeader">
                         <h2>Eyes. Face. Lip. Color.</h2>
@@ -61,7 +61,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
-            <section className="philosophy" id='aboutUs'>
+            <section className="philosophy wrapper" id='aboutUs'>
                 <h2>We start with 100% vegan ingredients and we apply effective formulas. Ethical Makeup aims to reduce the negative impact of waste packaging that contaminates our planet.</h2>
             </section>
             <section className="ready">

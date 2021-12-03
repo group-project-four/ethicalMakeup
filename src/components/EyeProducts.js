@@ -48,7 +48,7 @@ const EyeProducts = () => {
     }
 
     return (
-        <div>
+        <div className="wrapper">
             <div className="ApiError">{errorAPI}</div>
             <div className="sectionWrapper">
                 <h2>Eye Makeup</h2>

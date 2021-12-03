@@ -54,7 +54,7 @@ const AllProducts = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
-        <div>
+        <div className="wrapper">
             <div className="ApiError">{errorAPI}</div>
             <ul className="productSection">
                 {/* mapping through currentPosts in order to diplay the information on the page */}
