@@ -87,7 +87,7 @@ const SearchedProducts = (props) => {
                     <div>
                         <section>
                             <label htmlFor="sorting"></label>
-                            <select name="sorting" id="sorting" onChange={handleChangeOption}>
+                            <select name="sorting" id="sorting" onChange={handleChangeOption} className="sorting" tabIndex='0'>
                                 <option value defaultValue>Sort by</option>
                                 <option value="alphabetical">alphabetical</option>
                             </select>
@@ -106,7 +106,9 @@ const SearchedProducts = (props) => {
                                             </Link>
                                             <h3>{product.name}</h3>
                                             <p>${product.price}</p>
-                                            <button>More Info</button>
+                                            <Link to={`/${product.id}`}>
+                                                <button>More Info</button>
+                                            </Link>
                                         </div>
                                     )
                                 })
