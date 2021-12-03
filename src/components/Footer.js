@@ -8,7 +8,7 @@ import Logo from '../images/EthicalMakeupLogo.png'
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className="wrapper">
             <div className="topSection">
                 <ul>
                     <li><Link to="/">Home</Link></li>

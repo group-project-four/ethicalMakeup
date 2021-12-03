@@ -102,7 +102,7 @@ const CustomerReview = (props) => {
     }, [props.product])
     
     return (
-        <div>
+        <div className="wrapper">
             <div className="formContainer">
                 <h3>Write a Review!</h3>
                 <div className="form">

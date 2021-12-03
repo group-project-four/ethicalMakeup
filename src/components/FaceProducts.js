@@ -48,7 +48,7 @@ const FaceProducts = () => {
     }
 
     return (
-        <div>
+        <div className="wrapper">
             <div className="ApiError">{errorAPI}</div>
             {/* <MainNav /> */}
             <div className="sectionWrapper">
