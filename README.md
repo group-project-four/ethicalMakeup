@@ -1,7 +1,5 @@
 # Ethical Makeup 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Juno Web Developement Bootcamp | Cohort 37 | Project 4
 ### Built by: Dani, Ibrahim, James & Parisa
 
