@@ -147,7 +147,7 @@ output {
   }
 }
 
-.reviewsSection {
+.reviewsTitle {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -159,6 +159,12 @@ output {
     margin-bottom: 2%;
     margin-top: 10%;
   }
+}
+
+.reviewsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .singleReview {
     width: 80%;
     padding-bottom: 1%;

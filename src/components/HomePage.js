@@ -34,7 +34,7 @@ const HomePage = () => {
             <div className="headerContainer">
                 <div className="ApiError">{errorAPI}</div>
                 <section className="header">
-                    <h1>Value Proposition</h1>
+                    <h1>Makeup for the Ethically Conscious</h1>
                     <p>Sustainable and eco-friendly friendly makeup to achieve sustainable beauty.</p>
                     <Link to="catalogue">
                      <button>Shop</button>
