@@ -5,7 +5,7 @@
 
 Hosted on Netlify here: https://ethical-makeup-4.netlify.app
 
-![Screenshot of the homepage](https://user-images.githubusercontent.com/91764847/144527208-29813970-81ac-4fcc-9c39-e6e1bf4405ff.JPG)
+![Screenshot of the homepage](https://user-images.githubusercontent.com/91764847/145883371-8d3c6d0c-397a-49e0-96b3-e1daa72361fa.JPG)
 
 ## About the Application
 
