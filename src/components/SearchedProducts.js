@@ -15,6 +15,7 @@ const SearchedProducts = (props) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
     const [errorAPI, setErrorAPI] = useState('')
+    // const [emptyInputMessage, setEmptyInputMessage] = useState('Please enter a product name')
 
     //deconstructing productName imported from the component MainNav referenced to the user input search 
     const { productName } = useParams()
@@ -39,7 +40,7 @@ const SearchedProducts = (props) => {
                 const dataToFilter = response.data
                 const filteredData = dataToFilter.filter((productFiltered) => {
                     return productFiltered.price > 0.0
-                })                
+                })
                 setProduct(filteredData)
                 setErrorMessage('')
                 setPostsPerPage(16)
@@ -55,15 +56,15 @@ const SearchedProducts = (props) => {
     }
 
     //function is called when alphabetical option is selected
-    const handleChangeOption = (event) => { 
-        if(event.target.value === 'alphabetical'){
+    const handleChangeOption = (event) => {
+        if (event.target.value === 'alphabetical') {
             //a copy of all the data is made so it can be sorted alphabetically
             const copyOfProducts = [...products]
             const orderedPrice = copyOfProducts.sort((a, b) => {
                 return a.name > b.name
             })
             //set product is updated to alphabetical order
-            setProduct(orderedPrice)   
+            setProduct(orderedPrice)
         }
     }
 
@@ -82,39 +83,44 @@ const SearchedProducts = (props) => {
         <div className="sectionWrapper wrapper">
             <div className="ApiError">{errorAPI}</div>
             {
+                // productName == "" ? (
+                //     <div className="error">
+                //             <p>{emptyInputMessage}</p>
+                //     </div>
+                // ) :
                 products.length > 0 ?
                     (
-                    <div>
-                        <section>
-                            <label htmlFor="sorting"></label>
-                            <select name="sorting" id="sorting" onChange={handleChangeOption} className="sorting" tabIndex='0'>
-                                <option value defaultValue>Sort by</option>
-                                <option value="alphabetical">alphabetical</option>
-                            </select>
-                        </section>
-                        <ul className="productSection">
-                            {
-                                currentPosts.map(product => {
-                                    return (
-                                        <div key={product.id} className="productCard">
-                                            <Link to={`/${product.id}`}>
-                                                <img
-                                                    src={product.image_link}
-                                                    alt={`product of ${product.brand} company`}
-                                                    onError={imgError}
-                                                />
-                                            </Link>
-                                            <h3>{product.name}</h3>
-                                            <p>${product.price}</p>
-                                            <Link to={`/${product.id}`}>
-                                                <button>More Info</button>
-                                            </Link>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </ul>
-                    </div>
+                        <div>
+                            <section>
+                                <label htmlFor="sorting"></label>
+                                <select name="sorting" id="sorting" onChange={handleChangeOption} className="sorting" tabIndex='0'>
+                                    <option value defaultValue>Sort by</option>
+                                    <option value="alphabetical">alphabetical</option>
+                                </select>
+                            </section>
+                            <ul className="productSection">
+                                {
+                                    currentPosts.map(product => {
+                                        return (
+                                            <div key={product.id} className="productCard">
+                                                <Link to={`/${product.id}`}>
+                                                    <img
+                                                        src={product.image_link}
+                                                        alt={`product of ${product.brand} company`}
+                                                        onError={imgError}
+                                                    />
+                                                </Link>
+                                                <h3>{product.name}</h3>
+                                                <p>${product.price}</p>
+                                                <Link to={`/${product.id}`}>
+                                                    <button>More Info</button>
+                                                </Link>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
                     ) :
                     (
                         <div className="error">

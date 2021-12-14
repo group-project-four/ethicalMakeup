@@ -8,7 +8,7 @@ const CustomerReview = (props) => {
     const [reviews, setReviews] = useState([])
     const [recommendation, setRecommendation] = useState('')
     const [input, setInput] = useState('')
-    const [rating, setRating] =  useState(0)
+    const [rating, setRating] = useState(0)
     const [checkbox, setCheckbox] = useState(false)
 
     /**
@@ -100,7 +100,7 @@ const CustomerReview = (props) => {
             setRecommendation("I do not recommend this product")
         })
     }, [props.product])
-    
+
     return (
         <div className="wrapper">
             <div className="formContainer">
@@ -129,13 +129,13 @@ const CustomerReview = (props) => {
                         />
                         <div className="checkBoxes">
                             <label htmlFor="checkbox">Would you repurchase the product?</label>
-                            <input type="checkbox" id="checkbox" className="checkboxBox" tabIndex="0" aria-checked="false" value={checkbox} onChange={handleCheckbox} />                        
+                            <input type="checkbox" id="checkbox" className="checkboxBox" tabIndex="0" aria-checked="false" value={checkbox} onChange={handleCheckbox} />
                         </div>
                         <label htmlFor="rating" className="visuallyHidden">Rating 1-5</label>
                         <p className="ratingLabel">Your rating:</p>
                         <div className="sliderContainer">
                             <input type="range" id="rating" className="ratingSlider" name="rating"
-                            min="0" max="5" step="1" defaultValue={rating} onChange={handleRatingChange}/>
+                                min="0" max="5" step="1" defaultValue={rating} onChange={handleRatingChange} />
                             <output className="output">{rating}</output>
                         </div>
                         <input type="submit" value="Post" className="submitButton" />
@@ -144,22 +144,28 @@ const CustomerReview = (props) => {
             </div>
             {
                 reviews.length > 0 ?
-                    <ul className="reviewsSection">
-                        <h2>Product Reviews:</h2>
-                        {
-                            reviews.map((review, index) => {
-                                return (
-                                    <li key={index} className="singleReview">
-                                        <h3>{review.name} says:</h3>
-                                        <p>{review.rating} / 5</p>
-                                        <p>{review.review}</p>
-                                        <p>{review.checkbox}</p>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul> :
+                    <div>
+                        <div className='reviewsTitle'>
+                            <h2>Product Reviews:</h2>
+                        </div>
+                        <ul className="reviewsSection">
+
+                            {
+                                reviews.map((review, index) => {
+                                    return (
+                                        <li key={index} className="singleReview">
+                                            <h3>{review.name} says:</h3>
+                                            <p>{review.rating} / 5</p>
+                                            <p>{review.review}</p>
+                                            <p>{review.checkbox}</p>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div> :
                     null
+
             }
         </div>
     )
