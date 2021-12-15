@@ -24,9 +24,9 @@ const Footer = () => {
             </div>
             <div className="bottomSection">
                 <ul className="icons">
-                    <li><a href="https://www.linkedin.com" className="icon"><SiLinkedin /></a></li>
-                    <li><a href="https://twitter.com" className="icon"><SiTwitter /></a></li>
-                    <li><a href="https://www.instagram.com/" className="icon"><SiInstagram /></a></li>
+                    <li><a href="https://www.linkedin.com" className="icon"><SiLinkedin /></a><span hidden>Linkedin</span></li>
+                    <li><a href="https://twitter.com" className="icon"><SiTwitter /></a><span hidden>Twitter</span></li>
+                    <li><a href="https://www.instagram.com/" className="icon"><SiInstagram /></a><span hidden>Instagram</span></li>
                 </ul>
                 <p>Made at <a href="https://junocollege.com">Juno College</a> by Dani, Ibrahim, James and Parisa</p>
             </div>

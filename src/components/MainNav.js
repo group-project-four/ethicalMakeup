@@ -7,6 +7,7 @@ const MainNav = () => {
     //defining navigate hook and a state function 
     let navigate = useNavigate()
     const [inputSearch, setInputSearch] = useState('')
+    const [emptyInputMessage, setEmptyInputMessage] = useState('')
 
     //on form submit it will navigate to a new page called searchedProducts while passing in inputSearch
     const handleFormSubmit = (event) => {
@@ -53,6 +54,7 @@ const MainNav = () => {
                                     value={inputSearch}
                                     onChange={handleChange}
                                     onMouseOver={handleSearchBar}
+                                    required
                                 />
                         </div>
                     </form>
